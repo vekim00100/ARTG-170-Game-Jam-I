@@ -1,5 +1,13 @@
+class_name Player
 extends CharacterBody3D
 
+
+#Player health variables:
+var blood_level = 100.0
+var pain_level = 0.0
+var wounds = []
+
+var active_use_limbs = [] 
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
@@ -26,3 +34,25 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+	
+func _process(_delta: float) -> void:
+	#Life Loop:
+	for i in wounds:
+		await get_tree().create_timer(.33).timeout
+		blood_level -= (i.bleed_rate / 10)
+		pain_level += i.pain
+		if i.wound_location in active_use_limbs:			#Are you using an injured limb? That'll hurt.
+			i.pain *= 1.2
+		if i.pain > i.wound_table[i.wound_type["Pain"]]:	#Recovery from exertion. 
+			i.pain *= .9
+
+func _add_wound(wound_type = null, location = null):
+	var incoming_wound = Wound.new()
+	incoming_wound.wound_type = wound_type
+	incoming_wound.wound_location = location
+	incoming_wound.pain = incoming_wound.wound_table[wound_type["Pain"]]
+	incoming_wound.bleed_rate = incoming_wound.wound_table[wound_type["Bleed"]]
+	incoming_wound.infection_chance = incoming_wound.wound_table[wound_type["Infection"]]
+	wounds += incoming_wound
+	print("Wound: " + incoming_wound.wound_type + " | Location: " + incoming_wound.wound_location) 
+	print("Pain: " + incoming_wound.pain + " | Bleed Rate: " + incoming_wound.bleed_rate + " | Infection Chance: " + incoming_wound.infection_chance)
