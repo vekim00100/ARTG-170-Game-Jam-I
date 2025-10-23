@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmsfhxwsolacr"]
+
+[ext_resource type="Script" uid="uid://dirj33xox7esk" path="res://scripts/playerhealth/wound.gd" id="1_x5q7o"]
+
+[node name="Wound" type="Node"]
+script = ExtResource("1_x5q7o")
