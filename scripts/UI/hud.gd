@@ -1,5 +1,7 @@
 class_name HUD
 extends Control
+# signal debug_lacerate
+# signal debug_puncture
 
 @export var player: Player
 @onready var debug_menu = $Debug
@@ -26,7 +28,9 @@ func _process(_delta: float) -> void:
 			debug_menu.hide()
 
 func _on_debug_wound_laceration_pressed() -> void:
+	# debug_lacerate.emit()
 	player.add_wound("Laceration", "Chest")
 
 func _on_debug_wound_puncture_pressed() -> void:
+	# debug_puncture.emit()
 	player.add_wound("Puncture", "Chest")

@@ -26,6 +26,7 @@ offset_top = 32.0
 offset_right = 1094.0
 offset_bottom = 133.0
 grow_horizontal = 0
+fill_mode = 3
 
 [node name="Debug_Pain" type="ProgressBar" parent="Debug"]
 layout_mode = 1
@@ -33,6 +34,7 @@ offset_left = 1071.0
 offset_top = 32.0
 offset_right = 1091.0
 offset_bottom = 133.0
+fill_mode = 3
 
 [node name="Debug_Wounds" type="Label" parent="Debug"]
 layout_mode = 0
