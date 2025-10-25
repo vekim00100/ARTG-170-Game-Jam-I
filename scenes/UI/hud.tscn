@@ -1,6 +1,94 @@
-[gd_scene load_steps=2 format=3 uid="uid://bi3mwbi4u34wn"]
+[gd_scene load_steps=16 format=3 uid="uid://bi3mwbi4u34wn"]
 
 [ext_resource type="Script" uid="uid://b4xyk1sblajjy" path="res://scripts/UI/hud.gd" id="1_c4vmg"]
+[ext_resource type="Texture2D" uid="uid://cmcqnpp11nq3s" path="res://assets/images/hud/doll_bg_var2.png" id="2_18exe"]
+[ext_resource type="Texture2D" uid="uid://b1grvmuxtd32v" path="res://assets/images/hud/doll_overlay_var2.png" id="3_0jeyp"]
+[ext_resource type="Texture2D" uid="uid://cmkiso0thf6gs" path="res://assets/images/hud/doll_blood_var2.png" id="4_cg4gw"]
+[ext_resource type="Texture2D" uid="uid://dxday0jxd60xh" path="res://assets/images/hud/doll_overlay2_parasite.png" id="5_t6axx"]
+[ext_resource type="Texture2D" uid="uid://u6llquntqij1" path="res://assets/images/hud/doll_overlay2_ArmL.png" id="6_kj32l"]
+[ext_resource type="Texture2D" uid="uid://r2mw4hdr2nqr" path="res://assets/images/hud/doll_overlay2_ArmR.png" id="7_0fcg2"]
+[ext_resource type="Texture2D" uid="uid://dgvqruhcpcqur" path="res://assets/images/hud/doll_overlay2_chest.png" id="8_qe851"]
+[ext_resource type="Texture2D" uid="uid://uxvi411g5vyl" path="res://assets/images/hud/doll_overlay2_head.png" id="9_ggbtr"]
+[ext_resource type="Texture2D" uid="uid://thgnm666x5p7" path="res://assets/images/hud/doll_overlay2_LegL.png" id="10_w414h"]
+[ext_resource type="Texture2D" uid="uid://cxeru73nyieey" path="res://assets/images/hud/doll_overlay2_LegR.png" id="11_d15ok"]
+[ext_resource type="Texture2D" uid="uid://b0bo78alcwe0y" path="res://assets/images/hud/doll_overlay2_var2.png" id="12_kj32l"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4h6aq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_kj32l")
+}],
+"loop": true,
+"name": &"Arm_L",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_0fcg2")
+}],
+"loop": true,
+"name": &"Arm_R",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_qe851")
+}],
+"loop": true,
+"name": &"Chest",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_ggbtr")
+}],
+"loop": true,
+"name": &"Head",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_w414h")
+}],
+"loop": true,
+"name": &"Leg_L",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_d15ok")
+}],
+"loop": true,
+"name": &"Leg_R",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_t6axx")
+}],
+"loop": true,
+"name": &"Parasite",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0fcg2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_0jeyp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_kj32l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kj32l"]
+font_size = 64
+font_color = Color(0.52026945, 1.4980697e-06, 3.3691526e-07, 1)
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -12,6 +100,7 @@ grow_vertical = 2
 script = ExtResource("1_c4vmg")
 
 [node name="Debug" type="Control" parent="."]
+z_index = 102
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -30,9 +119,9 @@ fill_mode = 3
 
 [node name="Debug_Pain" type="ProgressBar" parent="Debug"]
 layout_mode = 1
-offset_left = 1071.0
+offset_left = 990.0
 offset_top = 32.0
-offset_right = 1091.0
+offset_right = 1010.0
 offset_bottom = 133.0
 fill_mode = 3
 
@@ -45,11 +134,11 @@ offset_bottom = 322.0
 
 [node name="Labels" type="Label" parent="Debug"]
 layout_mode = 0
-offset_left = 1062.0
-offset_top = 6.0
-offset_right = 1145.0
-offset_bottom = 29.0
-text = "Pain Blood"
+offset_left = 985.0
+offset_top = 5.0
+offset_right = 1147.0
+offset_bottom = 28.0
+text = "Pain                    Blood"
 
 [node name="Wound Control" type="Control" parent="Debug"]
 anchors_preset = 0
@@ -71,6 +160,86 @@ offset_top = 52.0
 offset_right = 852.0
 offset_bottom = 83.000015
 text = "Puncture"
+
+[node name="Doll" type="Control" parent="."]
+z_index = 101
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -152.0
+offset_top = 20.0
+offset_right = -112.0
+offset_bottom = 60.0
+grow_horizontal = 0
+scale = Vector2(2, 2)
+
+[node name="Background" type="TextureRect" parent="Doll"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_18exe")
+
+[node name="Blood_Level" type="TextureProgressBar" parent="Doll"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+fill_mode = 3
+texture_progress = ExtResource("4_cg4gw")
+
+[node name="Parasite" type="AnimatedSprite2D" parent="Doll"]
+z_index = 4
+position = Vector2(32, 56)
+sprite_frames = SubResource("SpriteFrames_4h6aq")
+animation = &"Chest"
+
+[node name="Detail_Anim" type="AnimatedSprite2D" parent="Doll"]
+z_index = 3
+position = Vector2(32, 56)
+sprite_frames = SubResource("SpriteFrames_0fcg2")
+autoplay = "default"
+frame_progress = 0.5675913
+
+[node name="Death" type="Control" parent="."]
+z_index = 100
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Text" type="Label" parent="Death"]
+z_index = 150
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -151.0
+offset_top = -44.0
+offset_right = 151.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "YOU DIED"
+label_settings = SubResource("LabelSettings_kj32l")
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Death"]
+layout_mode = 0
+offset_left = -556.0
+offset_top = -304.0
+offset_right = 596.0
+offset_bottom = 344.0
+color = Color(0, 0, 0, 1)
 
 [connection signal="pressed" from="Debug/Wound Control/Debug_Wound_Laceration" to="." method="_on_debug_wound_laceration_pressed"]
 [connection signal="pressed" from="Debug/Wound Control/Debug_Wound_Puncture" to="." method="_on_debug_wound_puncture_pressed"]

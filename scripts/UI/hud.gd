@@ -5,21 +5,24 @@ extends Control
 
 @export var player: Player
 @onready var debug_menu = $Debug
+@onready var death_menu = $Death
 @onready var debug_blood_bar = $Debug/Debug_Blood
 @onready var debug_pain_bar = $Debug/Debug_Pain
 @onready var debug_wound_display = $Debug/Debug_Wounds
-
+@onready var doll_blood_bar = $Doll/Blood_Level
+@onready var parasite_sprite = $Doll/Parasite
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	debug_menu.hide()
-
+	death_menu.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	debug_blood_bar.value = player.blood_level
-	debug_pain_bar.value = player.pain_level
-	# debug_wound_display.text 
+	
+	
+	updateUI()
+	
 	if Input.is_action_just_pressed("Debug_Overlay"):
 		print("Debug overlay toggled.")
 		if !debug_menu.visible:
@@ -34,3 +37,11 @@ func _on_debug_wound_laceration_pressed() -> void:
 func _on_debug_wound_puncture_pressed() -> void:
 	# debug_puncture.emit()
 	player.add_wound("Puncture", "Chest")
+
+func updateUI():
+	# UI tracked stats
+	debug_blood_bar.value = player.blood_level
+	debug_pain_bar.value = player.pain_level
+	doll_blood_bar.value = player.blood_level
+	
+	parasite_sprite.animation = player.parasite_location
