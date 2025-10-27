@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cg1aht11jyrpl"]
+
+[ext_resource type="PackedScene" uid="uid://kxp5crpsemhb" path="res://assets/models/janedoe.glb" id="1_hh6mh"]
+
+[node name="janedoe" instance=ExtResource("1_hh6mh")]
