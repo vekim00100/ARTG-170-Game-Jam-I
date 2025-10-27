@@ -38,7 +38,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-	if velocity:
+	if velocity: #Handles looking direction we're moving.
 		player_model.rotation.y = atan2(velocity.x, velocity.z)
 	move_and_slide()
 	
