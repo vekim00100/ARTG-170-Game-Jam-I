@@ -16,3 +16,7 @@ func _physics_process(delta: float) -> void:
 	if velocity: #Handles looking direction we're moving.
 		player_model.rotation.y = atan2(velocity.x, velocity.z)
 	move_and_slide()
+
+#func _ready():
+#	velocity.z += INITIAL_VELOCITY
+#	velocity.y += INITIAL_VELOCITY / 3

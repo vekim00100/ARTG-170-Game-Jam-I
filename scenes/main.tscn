@@ -1,19 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://b571ysf4uvwkl"]
+[gd_scene load_steps=7 format=3 uid="uid://b571ysf4uvwkl"]
 
-[ext_resource type="Script" uid="uid://checpego7bks" path="res://Scenes/main.gd" id="1_0wfyh"]
-[ext_resource type="PackedScene" uid="uid://dnn8wposvayv8" path="res://Scenes/debug/debug_player.tscn" id="1_o5qli"]
-[ext_resource type="PackedScene" uid="uid://bi3mwbi4u34wn" path="res://Scenes/UI/hud.tscn" id="3_sugp2"]
+[ext_resource type="Script" uid="uid://checpego7bks" path="res://scenes/main.gd" id="1_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://dnn8wposvayv8" path="res://scenes/debug/debug_player.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://bi3mwbi4u34wn" path="res://scenes/UI/hud.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cufrsum37iqqh" path="res://glb_models/main_mapv2.glb" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://becdl76bpc82p" path="res://scenes/main_map.tscn" id="5_kry3j"]
 [ext_resource type="Script" uid="uid://buacatamw86mw" path="res://scripts/player/client_handler.gd" id="5_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://becdl76bpc82p" path="res://Scenes/main_map.tscn" id="5_kry3j"]
-
 
 [node name="Main" type="Node"]
 script = ExtResource("1_0wfyh")
 
 [node name="Whiteboxing" type="CSGCombiner3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2460384, 0)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.9703732, 0)
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Whiteboxing"]
@@ -21,13 +19,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2197876, 0)
 size = Vector3(50, 0.5, 50)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.9995464, 0.03011974, 0, -0.03011974, -0.9995464, 0, 10.37993, -49.43949)
+transform = Transform3D(1, 0, 0, 0, -0.99962264, 0.027467988, 0, -0.027467988, -0.99962264, 0, 10.37993, -49.43949)
 
 [node name="Debug Player" parent="." instance=ExtResource("1_o5qli")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8773766, 3.0633016, -0.10640168)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.005363941, 1.298933, 2.3461645)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.88788766, 0.46006033, 0, -0.46006033, 0.88788766, 0, 18.137148, -6.652531)
+transform = Transform3D(1, 0, 0, 0, 0.88788766, 0.46006033, 0, -0.46006033, 0.88788766, 0, 6.8854446, 7.3072796)
 current = true
 
 [node name="HUD" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_sugp2")]
@@ -35,10 +33,15 @@ player = NodePath("../Debug Player")
 
 [node name="main_mapv2" parent="." instance=ExtResource("4_jyhfs")]
 transform = Transform3D(-0.5, 0, -4.371139e-08, 0, 0.5, 0, 4.371139e-08, 0, -0.5, 0, 7.4618683, 0)
+visible = false
+
 [node name="ClientHandler" type="Node3D" parent="." node_paths=PackedStringArray("host")]
+visible = false
 script = ExtResource("5_tbgi4")
 host = NodePath("../Debug Player")
-visible = false
-[node name="main_map" parent="." instance=ExtResource("5_kry3j")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
+[node name="main_map" parent="." instance=ExtResource("5_kry3j")]
+transform = Transform3D(-0.4, 0, -6.039832e-08, 0, 0.4, 0, 6.039832e-08, 0, -0.4, 0, 0, 0)
+
+[node name="Debug Character" parent="." instance=ExtResource("1_o5qli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1813936, 1.5733554, -2.8714457)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://bi3mwbi4u34wn"]
+[gd_scene load_steps=19 format=3 uid="uid://bi3mwbi4u34wn"]
 
 [ext_resource type="Script" uid="uid://b4xyk1sblajjy" path="res://scripts/UI/hud.gd" id="1_c4vmg"]
+[ext_resource type="FontFile" uid="uid://cp7py1fuqvw2e" path="res://assets/fonts/PixelOperator8.ttf" id="2_0fcg2"]
 [ext_resource type="Texture2D" uid="uid://cmcqnpp11nq3s" path="res://assets/images/hud/doll_bg_var2.png" id="2_18exe"]
 [ext_resource type="Texture2D" uid="uid://b1grvmuxtd32v" path="res://assets/images/hud/doll_overlay_var2.png" id="3_0jeyp"]
 [ext_resource type="Texture2D" uid="uid://cmkiso0thf6gs" path="res://assets/images/hud/doll_blood_var2.png" id="4_cg4gw"]
@@ -12,6 +13,12 @@
 [ext_resource type="Texture2D" uid="uid://thgnm666x5p7" path="res://assets/images/hud/doll_overlay2_LegL.png" id="10_w414h"]
 [ext_resource type="Texture2D" uid="uid://cxeru73nyieey" path="res://assets/images/hud/doll_overlay2_LegR.png" id="11_d15ok"]
 [ext_resource type="Texture2D" uid="uid://b0bo78alcwe0y" path="res://assets/images/hud/doll_overlay2_var2.png" id="12_kj32l"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qe851"]
+font = ExtResource("2_0fcg2")
+
+[sub_resource type="LabelSettings" id="LabelSettings_ggbtr"]
+font = ExtResource("2_0fcg2")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4h6aq"]
 animations = [{
@@ -101,64 +108,75 @@ script = ExtResource("1_c4vmg")
 
 [node name="Debug" type="Control" parent="."]
 z_index = 102
-anchors_preset = 0
-offset_right = 40.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
 offset_bottom = 40.0
+grow_horizontal = 0
+scale = Vector2(0.5, 0.5)
 
 [node name="Debug_Blood" type="ProgressBar" parent="Debug"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 1074.0
+offset_left = -80.0
 offset_top = 32.0
-offset_right = 1094.0
+offset_right = -60.0
 offset_bottom = 133.0
 grow_horizontal = 0
 fill_mode = 3
 
 [node name="Debug_Pain" type="ProgressBar" parent="Debug"]
 layout_mode = 1
-offset_left = 990.0
+offset_left = -84.0
 offset_top = 32.0
-offset_right = 1010.0
+offset_right = -64.0
 offset_bottom = 133.0
 fill_mode = 3
 
 [node name="Debug_Wounds" type="Label" parent="Debug"]
 layout_mode = 0
-offset_left = 1058.0
-offset_top = 150.0
-offset_right = 1151.0
-offset_bottom = 322.0
+offset_left = -69.0
+offset_top = 135.0
+offset_right = 24.0
+offset_bottom = 307.0
+label_settings = SubResource("LabelSettings_qe851")
 
 [node name="Labels" type="Label" parent="Debug"]
 layout_mode = 0
-offset_left = 985.0
-offset_top = 5.0
-offset_right = 1147.0
-offset_bottom = 28.0
-text = "Pain                    Blood"
+offset_left = -118.0
+offset_top = 6.0
+offset_right = 44.0
+offset_bottom = 29.0
+text = "Pain  Blood"
+label_settings = SubResource("LabelSettings_ggbtr")
 
 [node name="Wound Control" type="Control" parent="Debug"]
-anchors_preset = 0
-offset_right = 40.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
 offset_bottom = 40.0
+grow_horizontal = 0
 
 [node name="Debug_Wound_Laceration" type="Button" parent="Debug/Wound Control"]
 layout_mode = 0
-offset_left = 773.0
-offset_top = 17.0
-offset_right = 848.0
-offset_bottom = 48.0
+offset_left = -496.0
+offset_top = 18.0
+offset_right = -421.0
+offset_bottom = 49.0
 text = "Lacerate"
 
 [node name="Debug_Wound_Puncture" type="Button" parent="Debug/Wound Control"]
 layout_mode = 0
-offset_left = 773.0
-offset_top = 52.0
-offset_right = 852.0
-offset_bottom = 83.000015
+offset_left = -496.0
+offset_top = 53.0
+offset_right = -417.0
+offset_bottom = 84.000015
 text = "Puncture"
 
 [node name="Doll" type="Control" parent="."]
@@ -167,12 +185,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -152.0
-offset_top = 20.0
-offset_right = -112.0
-offset_bottom = 60.0
+offset_left = -40.0
+offset_bottom = 40.0
 grow_horizontal = 0
-scale = Vector2(2, 2)
+scale = Vector2(0.75, 0.75)
 
 [node name="Background" type="TextureRect" parent="Doll"]
 layout_mode = 0
