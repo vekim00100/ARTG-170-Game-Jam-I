@@ -7,7 +7,7 @@
 radius = 0.38085938
 height = 1.5992432
 
-[node name="Debug Player" type="CharacterBody3D"]
+[node name="ControllableCharacter" type="CharacterBody3D"]
 script = ExtResource("1_6osva")
 
 [node name="janedoe" parent="." instance=ExtResource("2_gj6b8")]
