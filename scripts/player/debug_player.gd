@@ -4,6 +4,7 @@ extends CharacterBody3D
 signal playerDeath
 
 @onready var player_model = $janedoe
+@onready var alert = $Alert 
 
 # Player health variables:
 var blood_level = 100.0
@@ -17,6 +18,10 @@ var active_use_limbs = []
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
+func _ready()-> void:
+	SignalBus.connect("player_interaction_available", player_interaction)
+	await get_tree().create_timer(.10).timeout
+	alert.hide()
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -76,3 +81,9 @@ func add_wound(wound_type = null, location = null):
 	print("Wound: " + str(incoming_wound.wound_type) + " | Location: " + str(incoming_wound.wound_location))
 	print("Pain: " + str(incoming_wound.pain) + " | Bleed Rate: " + str(incoming_wound.bleed_rate) + " | Infection Chance: " + str(incoming_wound.infection_chance))
 	pain_level += incoming_wound.pain
+
+func player_interaction(text_key):
+	if(text_key != null):
+		alert.show()
+	else:
+		alert.hide()

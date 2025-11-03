@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dnn8wposvayv8"]
+[gd_scene load_steps=6 format=3 uid="uid://dnn8wposvayv8"]
 
 [ext_resource type="Script" uid="uid://qcu3i2mtjen2" path="res://scripts/player/debug_player.gd" id="1_6osva"]
 [ext_resource type="PackedScene" uid="uid://kxp5crpsemhb" path="res://assets/models/janedoe.glb" id="2_gj6b8"]
@@ -6,6 +6,13 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gj6b8"]
 radius = 0.38085938
 height = 1.5992432
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gj6b8"]
+shading_mode = 0
+specular_mode = 1
+albedo_color = Color(1, 1, 0.4627451, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_jelsq"]
 
 [node name="ControllableCharacter" type="CharacterBody3D"]
 script = ExtResource("1_6osva")
@@ -16,3 +23,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1443077, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.20037842, 0)
 shape = SubResource("CapsuleShape3D_gj6b8")
+
+[node name="Alert" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3754743, 0)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Alert"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_gj6b8")
+mesh = SubResource("PrismMesh_jelsq")

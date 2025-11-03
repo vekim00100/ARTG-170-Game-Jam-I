@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctmki1i7tc6uo"]
+
+[ext_resource type="Script" uid="uid://23hri3demd0o" path="res://scripts/context_zone.gd" id="1_ao3pp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5pfoe"]
+
+[node name="ContextZone" type="Area3D"]
+script = ExtResource("1_ao3pp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_5pfoe")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
