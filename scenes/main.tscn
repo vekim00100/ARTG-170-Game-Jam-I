@@ -1,12 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://b571ysf4uvwkl"]
+[gd_scene load_steps=9 format=3 uid="uid://b571ysf4uvwkl"]
 
 [ext_resource type="Script" uid="uid://checpego7bks" path="res://scripts/main.gd" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://dnn8wposvayv8" path="res://scenes/debug/debug_player.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://bi3mwbi4u34wn" path="res://scenes/UI/hud.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cufrsum37iqqh" path="res://glb_models/main_mapv2.glb" id="4_jyhfs"]
-[ext_resource type="PackedScene" uid="uid://becdl76bpc82p" path="res://scenes/main_map.tscn" id="5_kry3j"]
 [ext_resource type="Script" uid="uid://buacatamw86mw" path="res://scripts/player/client_handler.gd" id="5_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://ctmki1i7tc6uo" path="res://scenes/context_zone.tscn" id="7_o6xl0"]
+[ext_resource type="PackedScene" path="res://scenes/context_zone.tscn" id="7_o6xl0"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_o6xl0"]
 
@@ -50,9 +49,6 @@ visible = false
 visible = false
 script = ExtResource("5_tbgi4")
 host = NodePath("../Debug Player")
-
-[node name="main_map" parent="." instance=ExtResource("5_kry3j")]
-transform = Transform3D(-0.4, 0, -6.039832e-08, 0, 0.4, 0, 6.039832e-08, 0, -0.4, 0, 0, 0)
 
 [node name="Debug Character" parent="." instance=ExtResource("1_o5qli")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1813936, 1.5733554, -2.8714457)
