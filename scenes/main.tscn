@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://b571ysf4uvwkl"]
+[gd_scene load_steps=8 format=3 uid="uid://b571ysf4uvwkl"]
 
 [ext_resource type="Script" uid="uid://checpego7bks" path="res://scripts/main.gd" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://dnn8wposvayv8" path="res://scenes/debug/debug_player.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://bi3mwbi4u34wn" path="res://scenes/UI/hud.tscn" id="3_sugp2"]
-[ext_resource type="PackedScene" uid="uid://cufrsum37iqqh" path="res://glb_models/main_mapv2.glb" id="4_jyhfs"]
 [ext_resource type="Script" uid="uid://buacatamw86mw" path="res://scripts/player/client_handler.gd" id="5_tbgi4"]
-[ext_resource type="PackedScene" path="res://scenes/context_zone.tscn" id="7_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://ctmki1i7tc6uo" path="res://scenes/context_zone.tscn" id="7_o6xl0"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_o6xl0"]
 
@@ -40,10 +39,6 @@ current = true
 
 [node name="HUD" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_sugp2")]
 player = NodePath("../Debug Player")
-
-[node name="main_mapv2" parent="." instance=ExtResource("4_jyhfs")]
-transform = Transform3D(-0.5, 0, -4.371139e-08, 0, 0.5, 0, 4.371139e-08, 0, -0.5, 0, 7.4618683, 0)
-visible = false
 
 [node name="ClientHandler" type="Node3D" parent="." node_paths=PackedStringArray("host")]
 visible = false
