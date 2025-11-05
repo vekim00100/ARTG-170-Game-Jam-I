@@ -4,6 +4,9 @@ extends Area3D
 
 var player_in_area = false
 
+func _ready() -> void:
+	await get_tree().create_timer(.5).timeout
+	player_in_area = false
 
 func _input(event):
 	if Dialogic.current_timeline != null:
