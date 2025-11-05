@@ -29,13 +29,13 @@ mesh = SubResource("BoxMesh_o6xl0")
 surface_material_override/0 = SubResource("StandardMaterial3D_tipki")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.99962264, 0.027467988, 0, -0.027467988, -0.99962264, 0, 10.37993, -49.43949)
+transform = Transform3D(1, 0, 0, 0, -0.9996227, 0.02746799, 0, -0.02746799, -0.9996227, -0.13417435, 23.63969, -9.88443)
 
 [node name="Debug Player" parent="." instance=ExtResource("1_o5qli")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.005363941, 1.298933, 2.3461645)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.88781536, 0.46019983, 0, -0.4601998, 0.8878154, 0, 14.328505, -11.504573)
+transform = Transform3D(1, 0, 0, 0, 0.9916216, 0.12917641, 0, -0.12917641, 0.9916216, 0, 17.491377, 6.266116)
 current = true
 
 [node name="HUD" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_sugp2")]
