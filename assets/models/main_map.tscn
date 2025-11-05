@@ -1,7 +1,8 @@
-[gd_scene load_steps=70 format=4 uid="uid://cvpudbsmmlqyb"]
+[gd_scene load_steps=71 format=4 uid="uid://cvpudbsmmlqyb"]
 
 [ext_resource type="Texture2D" uid="uid://bwi3jvlqrbuh5" path="res://assets/glb_models/main_map_carpet texture.jpg" id="1_1xo34"]
 [ext_resource type="Texture2D" uid="uid://cu2sahjm8majs" path="res://assets/glb_models/main_map_grey marble texture.jpg" id="2_eqscl"]
+[ext_resource type="PackedScene" uid="uid://da7g66ya6vjbk" path="res://assets/models/door.tscn" id="3_eqscl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lb33q"]
 resource_name = "Material.002"
@@ -824,3 +825,9 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Room 2 Floor/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_7tq10")
+
+[node name="Left Door" parent="." instance=ExtResource("3_eqscl")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 25.401, 0, 0)
+
+[node name="Right Door" parent="." instance=ExtResource("3_eqscl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.277962, 0, 0)
