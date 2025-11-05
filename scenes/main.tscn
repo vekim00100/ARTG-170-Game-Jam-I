@@ -35,7 +35,7 @@ transform = Transform3D(1, 0, 0, 0, -0.99962264, 0.027467988, 0, -0.027467988, -
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.005363941, 1.298933, 2.3461645)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.88781536, 0.46019977, 0, -0.4601998, 0.8878153, 0, 6.8854446, 7.3072796)
+transform = Transform3D(1, 0, 0, 0, 0.88781536, 0.46019983, 0, -0.4601998, 0.8878154, 0, 14.328505, -11.504573)
 current = true
 
 [node name="HUD" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_sugp2")]
