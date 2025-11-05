@@ -40,6 +40,7 @@ overrides = {
 "name_label_use_global_size": "false",
 "text_custom_color": "Color(0.94921875, 0.38562012, 0.38562012, 1)",
 "text_custom_size": "8.0",
+"text_use_global_color": "false",
 "text_use_global_size": "false",
 "use_global_fonts": "false"
 }

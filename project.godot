@@ -35,9 +35,10 @@ directories/dtl_directory={
 layout/style_directory={
 "": "res://dialogue/Style.tres",
 "Style": "res://dialogue/Style.tres",
+"Style_Parasite_Purple": "res://dialogue/Style_Parasite_Purple.tres",
 "Style_Parasite_Red": "res://dialogue/Style_Parasite_Red.tres"
 }
-layout/style_list=["res://dialogue/Style.tres", "res://dialogue/Style_Parasite_Red.tres"]
+layout/style_list=["res://dialogue/Style.tres", "res://dialogue/Style_Parasite_Red.tres", "res://dialogue/Style_Parasite_Purple.tres"]
 layout/default_style="res://dialogue/Style.tres"
 glossary/default_case_sensitive=true
 extensions_folder="res://addons/dialogic_additions"

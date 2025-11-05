@@ -10,4 +10,4 @@ if {pasta_eaten} == false:
 	parasite: The host is weak. I must...
 	[You eat it. Your host gags involuntarily.]
 	[No matter. You know what's best for her.]
-set
+	set {pasta_eaten} = true
