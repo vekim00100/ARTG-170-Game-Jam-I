@@ -1,11 +1,19 @@
 update parasite
 [It's a journal. It seems well taken care of.]
 [It reads the following text\:]
-[style name="Style_Parasite_Red"]
-'You wake, brother.'
-'Welcome to the trial. You have grown. You are of age.'
-'But you will NOT win, you silly worm.'
-'Your mind is dull. Your host  is slim.'
-'You stand no chance.'
-[style name="Style"]
+if {journal_1_read} == false:
+	'I see you have woken up, my little one.'
+	'Do not fret, you are safe for now...'
+	'I must warn you, though, you are NOT alone!'
+	'Find them...HUNT them down.'
+	'I speak of the coming of age trial. You must fufil your duty.'
+else:
+	[style name="Style_Parasite_Red"]
+	'You wake, brother.'
+	'Welcome to the trial. You have grown. You are of age.'
+	'But you will NOT win, you silly worm.'
+	'Your mind is dull. Your host  is slim.'
+	'You stand no chance.'
+	[style name="Style"]
 [The rest of the pages are blank.]
+set {journal_1_read} = true
