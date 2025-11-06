@@ -1,13 +1,20 @@
 update parasite
 [It's a journal. It's covered in stains... spaghetti sauce?]
 [It reads the following text\:]
-[style name="Style_Parasite_Red"]
-'You are presented with little food, brother.'
-'What will you do when you run out?'
-[style name="Style"]
+if {journal_2_read} == false:
+	'Little one, I have graced you with your first meal.'
+	'Eat well. Grow strong.'
+	'You must gain strength for what is to come.'
+	'Eat quickly, and waste not a single scrap.'
+else:
+	[style name="Style_Parasite_Red"]
+	'You are presented with little food, brother.'
+	'What will you do when you run out?'
+	[style name="Style"]
 if {pasta_eaten} == false:
 	[By the journal, you find a dish of half-moldy pasta.]
 	parasite: The host is weak. I must...
 	[You eat it. Your host gags involuntarily.]
 	[No matter. You know what's best for her.]
 	set {pasta_eaten} = true
+set {journal_2_read} = true
