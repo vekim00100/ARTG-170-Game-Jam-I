@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b571ysf4uvwkl"]
+[gd_scene load_steps=11 format=3 uid="uid://b571ysf4uvwkl"]
 
 [ext_resource type="Script" uid="uid://checpego7bks" path="res://scripts/main.gd" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://dnn8wposvayv8" path="res://scenes/debug/debug_player.tscn" id="1_o5qli"]
@@ -14,8 +14,6 @@
 albedo_color = Color(0.5452307, 0.19142678, 7.2196127e-07, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tefeu"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_o6xl0"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_0wfyh")
@@ -62,7 +60,6 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.0
 
 [node name="Camera3D" type="Camera3D" parent="Camera"]
 transform = Transform3D(1, 0, 0, 0, 0.738267, 0.6745086, 0, -0.6745086, 0.738267, 0, 2.0399609, 22.03185)
-visible = false
 current = true
 
 [node name="Area3D" type="Area3D" parent="Camera/Camera3D"]
@@ -75,7 +72,6 @@ shape = SubResource("BoxShape3D_tefeu")
 
 [node name="Camera3D2" type="Camera3D" parent="Camera"]
 transform = Transform3D(1, 0, 0, 0, 0.99864507, 0.052039657, 0, -0.052039657, 0.99864507, 0, 2.3329515, 21.816202)
-visible = false
 
 [node name="Area3D" type="Area3D" parent="Camera/Camera3D2"]
 transform = Transform3D(6.186873, 0, 0, 0, 2.35531, -5.9604645e-08, 0, 1.4901161e-08, 5.880899, 0, -0.5286608, -6.6130047)
@@ -139,7 +135,7 @@ shape = SubResource("BoxShape3D_tefeu")
 transform = Transform3D(0.5075384, 0, -0.8616291, 0, 1, 0, 0.8616291, 0, 0.5075384, 6.112, 5.895, 7.496)
 
 [node name="Area3D" type="Area3D" parent="Camera/Right Door Camera"]
-transform = Transform3D(-6.3806334, 0, -18.343704, 0, 2.9999998, 0, 11.186895, 0, -10.462641, 0.90804577, -4.7525587, -17.64246)
+transform = Transform3D(-6.3806334, 0, -18.343704, 0, 2.9999998, 0, 11.186895, 0, -10.462641, 0.61339843, -4.7525587, -17.125868)
 script = ExtResource("3_o6xl0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Camera/Right Door Camera/Area3D"]
@@ -159,22 +155,22 @@ shape = SubResource("BoxShape3D_tefeu")
 transform = Transform3D(0.6760791, 0, 0.73682916, 0, 1, 0, -0.73682916, 0, 0.6760791, 10.008829, 5.895, 9.055924)
 
 [node name="Area3D" type="Area3D" parent="Camera/Left Center"]
-transform = Transform3D(8.737724, 0, -6.0337906, 0, 3, 0, 9.53556, 0, 5.52895, -4.195011, -4.5028415, -19.191635)
+transform = Transform3D(9.742626, 0, -10.800972, 0, 3, 0, 10.632219, 0, 9.897266, -6.258688, -4.5028415, -17.623396)
 script = ExtResource("3_o6xl0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Camera/Left Center/Area3D"]
-transform = Transform3D(1.1413422, 0, 0, 0, 1, 0, 0, 0, 1.6888398, -2.910383e-11, 0, -0.3564533)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.910383e-11, 0, -0.3564533)
 shape = SubResource("BoxShape3D_tefeu")
 
 [node name="Right Center" type="Camera3D" parent="Camera"]
 transform = Transform3D(0.6755902, 0, -0.7372773, 0, 1, 0, 0.7372773, 0, 0.6755902, -10.009, 5.895, 9.056)
 
 [node name="Area3D" type="Area3D" parent="Camera/Right Center"]
-transform = Transform3D(-8.723243, 0, -6.042179, 0, 3, 0, 9.54881, 0, -5.5197825, 0.42261267, -4.5028415, -23.87366)
+transform = Transform3D(-9.726535, 0, -10.816125, 0, 3, 0, 10.647054, 0, -9.880989, -1.372113, -4.5028415, -24.751291)
 script = ExtResource("3_o6xl0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Camera/Right Center/Area3D"]
-transform = Transform3D(1.1413422, 0, 0, 0, 1, 0, 0, 0, 1.6888398, -2.910383e-11, 0, -0.3564533)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.910383e-11, 0, -0.3564533)
 shape = SubResource("BoxShape3D_tefeu")
 
 [node name="Main Camera" type="Camera3D" parent="Camera"]
@@ -206,14 +202,6 @@ script = ExtResource("3_o6xl0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Camera/Balcony Camera/Area3D"]
 shape = SubResource("BoxShape3D_tefeu")
-
-[node name="Placeholder for Camera" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.516718, 1.043, -15.470316)
-mesh = SubResource("CapsuleMesh_o6xl0")
-
-[node name="Placeholder for Camera" type="MeshInstance3D" parent="Placeholder for Camera"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.459, 0, -2.4579182)
-mesh = SubResource("CapsuleMesh_o6xl0")
 
 [connection signal="body_entered" from="Camera/Camera3D/Area3D" to="Camera/Camera3D/Area3D" method="enter_trigger"]
 [connection signal="body_exited" from="Camera/Camera3D/Area3D" to="Camera/Camera3D/Area3D" method="exit_trigger"]
