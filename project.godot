@@ -75,6 +75,7 @@ audio/channel_defaults={
 }
 }
 variables={
+"journal_1_read": false,
 "pasta_eaten": false
 }
 
