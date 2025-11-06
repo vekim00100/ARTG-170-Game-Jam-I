@@ -20,6 +20,7 @@ const JUMP_VELOCITY = 4.5
 
 func _ready()-> void:
 	SignalBus.connect("player_interaction_available", player_interaction)
+	# Dialogic.connect("scripted_damage_burn", script_damage_burn)
 	await get_tree().create_timer(.10).timeout
 	alert.hide()
 

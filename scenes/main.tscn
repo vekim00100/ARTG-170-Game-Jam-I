@@ -26,11 +26,6 @@ use_collision = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2197876, 0)
 size = Vector3(50, 0.5, 50)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Whiteboxing"]
-transform = Transform3D(0.975, 0, 0, 0, 0.16, 0, 0, 0, 0.705, -7.1758027, 3.0710602, -7.5023055)
-mesh = SubResource("BoxMesh_o6xl0")
-surface_material_override/0 = SubResource("StandardMaterial3D_tipki")
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.9996227, 0.02746799, 0, -0.02746799, -0.9996227, -0.13417435, 23.63969, -9.88443)
 
@@ -49,9 +44,35 @@ host = NodePath("../Debug Player")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1813936, 1.5733554, -2.8714457)
 visible = false
 
-[node name="ContextZone" parent="." instance=ExtResource("7_o6xl0")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -7.336781, 1.2906948, -6.2732654)
+[node name="Journal_1" parent="." instance=ExtResource("7_o6xl0")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -4.215307, 1.2906948, -1.8991561)
 text_key = "journal_1"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Journal_1"]
+transform = Transform3D(0.32500002, 0, 0, 0, 0.053333335, 0, 0, 0, 0.235, -0.02038145, -0.39666933, 0.18306005)
+mesh = SubResource("BoxMesh_o6xl0")
+skeleton = NodePath("../../Whiteboxing")
+surface_material_override/0 = SubResource("StandardMaterial3D_tipki")
+
+[node name="Journal_2" parent="." instance=ExtResource("7_o6xl0")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 10.211838, 1.2906948, -9.77585)
+text_key = "journal_2"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Journal_2"]
+transform = Transform3D(0.32500002, 0, 0, 0, 0.053333335, 0, 0, 0, 0.235, -0.02038145, -0.39666933, 0.18306005)
+mesh = SubResource("BoxMesh_o6xl0")
+skeleton = NodePath("../../Whiteboxing")
+surface_material_override/0 = SubResource("StandardMaterial3D_tipki")
+
+[node name="Journal_3" parent="." instance=ExtResource("7_o6xl0")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.19446278, 6.422065, -17.8964)
+text_key = "journal_3"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Journal_3"]
+transform = Transform3D(0.32500002, 0, 0, 0, 0.053333335, 0, 0, 0, 0.235, -0.02038145, -0.39666933, 0.18306005)
+mesh = SubResource("BoxMesh_o6xl0")
+skeleton = NodePath("../../Whiteboxing")
+surface_material_override/0 = SubResource("StandardMaterial3D_tipki")
 
 [node name="main_map" parent="." instance=ExtResource("5_kry3j")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.03275585, 0.01945448, 0.007742882)
