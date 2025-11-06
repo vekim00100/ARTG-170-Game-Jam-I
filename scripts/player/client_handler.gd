@@ -24,11 +24,11 @@ func _process(delta: float) -> void:
 		host.velocity.z = move_toward(host.velocity.z, 0, host.SPEED)
 
 	# Parasite Jump
-	if Input.is_action_just_pressed("Host_Eject") and host.is_on_floor():
-		var parasite = parasite_scene.instantiate()
-		add_child(parasite)
-		# Inherit position and rotation.
-		parasite.global_position = host.global_position
-		parasite.rotation.y = host.rotation.y
-		print("debug_host_eject")
-		#set_process_input(false) # Should apply to only host in the future.
+	#if Input.is_action_just_pressed("Host_Eject") and host.is_on_floor():
+		#var parasite = parasite_scene.instantiate()
+		#add_child(parasite)
+		## Inherit position and rotation.
+		#parasite.global_position = host.global_position
+		#parasite.rotation.y = host.rotation.y
+		#print("debug_host_eject")
+		##set_process_input(false) # Should apply to only host in the future.
