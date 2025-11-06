@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b571ysf4uvwkl"]
+[gd_scene load_steps=16 format=3 uid="uid://b571ysf4uvwkl"]
 
 [ext_resource type="Script" uid="uid://checpego7bks" path="res://scripts/main.gd" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://dnn8wposvayv8" path="res://scenes/debug/debug_player.tscn" id="1_o5qli"]
@@ -13,6 +13,20 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tipki"]
 albedo_color = Color(0.5452307, 0.19142678, 7.2196127e-07, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tipki"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_85g3d"]
+albedo_color = Color(0.09803922, 0, 0.14901961, 1)
+emission_enabled = true
+disable_receive_shadows = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_choun"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ya4ey"]
+material = SubResource("StandardMaterial3D_choun")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tefeu"]
 
@@ -74,7 +88,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_tipki")
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -0.42146403, 0.2569178)
 
 [node name="Journal_3" parent="." instance=ExtResource("7_o6xl0")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.19446278, 6.422065, -17.8964)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.19446278, 11.560771, -38.486736)
 text_key = "journal_3"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Journal_3"]
@@ -85,10 +99,19 @@ skeleton = NodePath("../../Whiteboxing")
 surface_material_override/0 = SubResource("StandardMaterial3D_tipki")
 
 [node name="journal" parent="Journal_3" instance=ExtResource("6_tipki")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -0.42146403, 0.2569178)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -0.42146397, -0.32029533)
 
 [node name="main_map" parent="." instance=ExtResource("5_kry3j")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.03275585, 0.01945448, 0.007742882)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="main_map"]
+transform = Transform3D(40, 0, 0, 0, 80, 0, 0, 0, 1, -5.453825e-06, 10.855774, 62.395275)
+mesh = SubResource("BoxMesh_tipki")
+surface_material_override/0 = SubResource("StandardMaterial3D_85g3d")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="main_map"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -5.4091215e-06, 25.816822, 61.87307)
+mesh = SubResource("SphereMesh_ya4ey")
 
 [node name="Camera" type="Node" parent="."]
 
@@ -115,68 +138,8 @@ script = ExtResource("3_o6xl0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.820766e-11, 0.17257851)
 shape = SubResource("BoxShape3D_tefeu")
 
-[node name="Left Camera" type="Camera3D" parent="Camera"]
-transform = Transform3D(0.49955755, -0.17383721, 0.84865946, 0.010630147, 0.9808151, 0.19465028, -0.8662155, -0.08821764, 0.4918215, -1.2535732, 1.8010073, 22.141653)
-
-[node name="Area3D" type="Area3D" parent="Camera/Left Camera"]
-transform = Transform3D(5.260115, 0.03210861, -10.390702, -1.8415401, 2.9425042, -1.0492316, 8.995001, 0.5836403, 5.8614864, 2.0212383, 0.15010738, -8.3152)
-script = ExtResource("3_o6xl0")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera/Left Camera/Area3D"]
-shape = SubResource("BoxShape3D_tefeu")
-
-[node name="Left Camera2" type="Camera3D" parent="Camera"]
-transform = Transform3D(0.70559955, 0.047480687, -0.7070184, 0, 0.99775255, 0.067005314, 0.7086108, -0.047278915, 0.70401376, -25.04415, 1.3273787, 22.206278)
-
-[node name="Area3D" type="Area3D" parent="Camera/Left Camera2"]
-transform = Transform3D(8.739721, -0.00052841986, 8.466252, 0.5627497, 2.9938023, -0.5426935, -8.717327, 0.19273604, 8.452964, -0.5900413, -0.71817976, -9.450892)
-script = ExtResource("3_o6xl0")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera/Left Camera2/Area3D"]
-shape = SubResource("BoxShape3D_tefeu")
-
-[node name="Left Door Camera" type="Camera3D" parent="Camera"]
-transform = Transform3D(0.5071473, 0, 0.86185944, 0, 1, 0, -0.86185944, 0, 0.5071473, -6.1119194, 5.894682, 7.4958916)
-
-[node name="Area3D" type="Area3D" parent="Camera/Left Door Camera"]
-transform = Transform3D(6.5806975, 0, -18.152664, 0, 2.9999998, 0, 11.070389, 0, 10.790694, -0.21860105, -4.7525587, -16.972733)
-script = ExtResource("3_o6xl0")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera/Left Door Camera/Area3D"]
-shape = SubResource("BoxShape3D_tefeu")
-
-[node name="Right Camera" type="Camera3D" parent="Camera"]
-transform = Transform3D(0.49972355, 0.17328462, -0.8486748, -0.01027235, 0.9809014, 0.19423436, 0.86612403, -0.0883456, 0.49195957, 1.254, 1.801, 22.142)
-
-[node name="Area3D" type="Area3D" parent="Camera/Right Camera"]
-transform = Transform3D(-5.327326, -0.028094105, -10.347068, -1.8589032, 2.9404988, 1.0986154, 8.9522505, 0.5938659, -5.929233, -2.021, 0, -8.315)
-script = ExtResource("3_o6xl0")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera/Right Camera/Area3D"]
-shape = SubResource("BoxShape3D_tefeu")
-
-[node name="Right Camera2" type="Camera3D" parent="Camera"]
-transform = Transform3D(0.7058716, -0.046944447, 0.7067825, 0, 0.9978015, 0.066273905, -0.7083398, -0.046780866, 0.7043197, 25.044, 1.327, 22.206)
-
-[node name="Area3D" type="Area3D" parent="Camera/Right Camera2"]
-transform = Transform3D(8.739721, -0.00052841986, 8.466252, 0.5627497, 2.9938023, -0.5426935, -8.717327, 0.19273604, 8.452964, -0.5900413, -0.71817976, -9.450892)
-script = ExtResource("3_o6xl0")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera/Right Camera2/Area3D"]
-shape = SubResource("BoxShape3D_tefeu")
-
-[node name="Right Door Camera" type="Camera3D" parent="Camera"]
-transform = Transform3D(0.5075384, 0, -0.8616291, 0, 1, 0, 0.8616291, 0, 0.5075384, 6.112, 5.895, 7.496)
-
-[node name="Area3D" type="Area3D" parent="Camera/Right Door Camera"]
-transform = Transform3D(-6.3806334, 0, -18.343704, 0, 2.9999998, 0, 11.186895, 0, -10.462641, 0.61339843, -4.7525587, -17.125868)
-script = ExtResource("3_o6xl0")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera/Right Door Camera/Area3D"]
-shape = SubResource("BoxShape3D_tefeu")
-
 [node name="Huge Main Center Camera" type="Camera3D" parent="Camera"]
-transform = Transform3D(1, 0, 0, 0, 0.8835451, 0.4683462, 0, -0.4683462, 0.8835451, 0, 22.879389, 22.77814)
+transform = Transform3D(1, 0, 0, 0, 0.8835451, 0.4683462, 0, -0.4683462, 0.8835451, 0, 201.801, 22.77814)
 
 [node name="Area3D" type="Area3D" parent="Camera/Huge Main Center Camera"]
 transform = Transform3D(6.186873, 0, 0, 0, 2.022284, -4.53988, 0, 1.0707444, 8.574344, 0, -13.071785, -23.054714)
@@ -185,36 +148,15 @@ script = ExtResource("3_o6xl0")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Camera/Huge Main Center Camera/Area3D"]
 shape = SubResource("BoxShape3D_tefeu")
 
-[node name="Left Center" type="Camera3D" parent="Camera"]
-transform = Transform3D(0.6760791, 0, 0.73682916, 0, 1, 0, -0.73682916, 0, 0.6760791, 10.008829, 5.895, 9.055924)
-
-[node name="Area3D" type="Area3D" parent="Camera/Left Center"]
-transform = Transform3D(9.742626, 0, -10.800972, 0, 3, 0, 10.632219, 0, 9.897266, -6.258688, -4.5028415, -17.623396)
-script = ExtResource("3_o6xl0")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera/Left Center/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.910383e-11, 0, -0.3564533)
-shape = SubResource("BoxShape3D_tefeu")
-
-[node name="Right Center" type="Camera3D" parent="Camera"]
-transform = Transform3D(0.6755902, 0, -0.7372773, 0, 1, 0, 0.7372773, 0, 0.6755902, -10.009, 5.895, 9.056)
-
-[node name="Area3D" type="Area3D" parent="Camera/Right Center"]
-transform = Transform3D(-9.726535, 0, -10.816125, 0, 3, 0, 10.647054, 0, -9.880989, -1.372113, -4.5028415, -24.751291)
-script = ExtResource("3_o6xl0")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera/Right Center/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.910383e-11, 0, -0.3564533)
-shape = SubResource("BoxShape3D_tefeu")
-
 [node name="Main Camera" type="Camera3D" parent="Camera"]
-transform = Transform3D(1, 0, 0, 0, 0.99189895, 0.12702996, 0, -0.12702996, 0.99189895, 0, 14.353195, 4.645799)
+transform = Transform3D(1, 0, 0, 0, 0.99189895, 0.12702996, 0, -0.12702996, 0.99189895, 0, 8.617686, 19.818926)
 
 [node name="Area3D" type="Area3D" parent="Camera/Main Camera"]
-transform = Transform3D(43.265953, 0, 0, 0, 2.2696118, -1.6954818, 0, 0.29074413, 13.235305, 0, -9.708523, -23.62127)
+transform = Transform3D(1, 0, 0, 0, 0.9918945, -0.12706469, 0, 0.12706469, 0.9918945, 0, -9.09132, -28.440622)
 script = ExtResource("3_o6xl0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Camera/Main Camera/Area3D"]
+transform = Transform3D(49, 0, 0, 0, 3, 3.7136488e-08, 0, -3.7325663e-09, 30, 0, 3.5314445, 5.136165)
 shape = SubResource("BoxShape3D_tefeu")
 
 [node name="Stairs Camera" type="Camera3D" parent="Camera"]
@@ -237,31 +179,115 @@ script = ExtResource("3_o6xl0")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Camera/Balcony Camera/Area3D"]
 shape = SubResource("BoxShape3D_tefeu")
 
+[node name="Unused" type="Node" parent="Camera"]
+
+[node name="Left Camera" type="Camera3D" parent="Camera/Unused"]
+transform = Transform3D(0.49955755, -0.17383721, 0.84865946, 0.010630147, 0.9808151, 0.19465028, -0.8662155, -0.08821764, 0.4918215, -1.2535732, 201.801, 22.141653)
+
+[node name="Area3D" type="Area3D" parent="Camera/Unused/Left Camera"]
+transform = Transform3D(5.260115, 0.03210861, -10.390702, -1.8415401, 2.9425042, -1.0492316, 8.995001, 0.5836403, 5.8614864, 2.0212383, 0.15010738, -8.3152)
+script = ExtResource("3_o6xl0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera/Unused/Left Camera/Area3D"]
+shape = SubResource("BoxShape3D_tefeu")
+
+[node name="Left Camera2" type="Camera3D" parent="Camera/Unused"]
+transform = Transform3D(0.70559955, 0.047480687, -0.7070183, 0, 0.9977526, 0.067005314, 0.7086108, -0.047278922, 0.7040138, -25.04415, 201.801, 22.206278)
+
+[node name="Area3D" type="Area3D" parent="Camera/Unused/Left Camera2"]
+transform = Transform3D(8.739721, -0.00052841986, 8.466252, 0.5627497, 2.9938023, -0.5426935, -8.717327, 0.19273604, 8.452964, -0.5900413, -0.71817976, -9.450892)
+script = ExtResource("3_o6xl0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera/Unused/Left Camera2/Area3D"]
+shape = SubResource("BoxShape3D_tefeu")
+
+[node name="Left Door Camera" type="Camera3D" parent="Camera/Unused"]
+transform = Transform3D(0.5071473, 0, 0.86185944, 0, 1, 0, -0.86185944, 0, 0.5071473, -6.1119194, 201.801, 7.4958916)
+
+[node name="Area3D" type="Area3D" parent="Camera/Unused/Left Door Camera"]
+transform = Transform3D(6.5806975, 0, -18.152664, 0, 2.9999998, 0, 11.070389, 0, 10.790694, -0.21860105, -4.7525587, -16.972733)
+script = ExtResource("3_o6xl0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera/Unused/Left Door Camera/Area3D"]
+shape = SubResource("BoxShape3D_tefeu")
+
+[node name="Right Camera" type="Camera3D" parent="Camera/Unused"]
+transform = Transform3D(0.49972355, 0.17328462, -0.8486748, -0.01027235, 0.9809014, 0.19423434, 0.86612403, -0.08834559, 0.49195957, 1.254, 201.801, 22.142)
+
+[node name="Area3D" type="Area3D" parent="Camera/Unused/Right Camera"]
+transform = Transform3D(-5.327326, -0.028094105, -10.347068, -1.8589032, 2.9404988, 1.0986154, 8.9522505, 0.5938659, -5.929233, -2.021, 0, -8.315)
+script = ExtResource("3_o6xl0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera/Unused/Right Camera/Area3D"]
+shape = SubResource("BoxShape3D_tefeu")
+
+[node name="Right Camera2" type="Camera3D" parent="Camera/Unused"]
+transform = Transform3D(0.7058716, -0.046944443, 0.7067825, 0, 0.9978015, 0.066273905, -0.7083398, -0.04678087, 0.7043197, 25.044, 201.801, 22.206)
+
+[node name="Area3D" type="Area3D" parent="Camera/Unused/Right Camera2"]
+transform = Transform3D(8.739721, -0.00052841986, 8.466252, 0.5627497, 2.9938023, -0.5426935, -8.717327, 0.19273604, 8.452964, -0.5900413, -0.71817976, -9.450892)
+script = ExtResource("3_o6xl0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera/Unused/Right Camera2/Area3D"]
+shape = SubResource("BoxShape3D_tefeu")
+
+[node name="Right Door Camera" type="Camera3D" parent="Camera/Unused"]
+transform = Transform3D(0.5075384, 0, -0.8616291, 0, 1, 0, 0.8616291, 0, 0.5075384, 6.112, 201.801, 7.496)
+
+[node name="Area3D" type="Area3D" parent="Camera/Unused/Right Door Camera"]
+transform = Transform3D(-6.3806334, 0, -18.343704, 0, 2.9999998, 0, 11.186895, 0, -10.462641, 0.61339843, -4.7525587, -17.125868)
+script = ExtResource("3_o6xl0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera/Unused/Right Door Camera/Area3D"]
+shape = SubResource("BoxShape3D_tefeu")
+
+[node name="Left Center" type="Camera3D" parent="Camera/Unused"]
+transform = Transform3D(0.6760791, 0, 0.73682916, 0, 1, 0, -0.73682916, 0, 0.6760791, 10.008829, 201.801, 9.055924)
+
+[node name="Area3D" type="Area3D" parent="Camera/Unused/Left Center"]
+transform = Transform3D(9.742626, 0, -10.800972, 0, 3, 0, 10.632219, 0, 9.897266, -6.258688, -4.5028415, -17.623396)
+script = ExtResource("3_o6xl0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera/Unused/Left Center/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.910383e-11, 0, -0.3564533)
+shape = SubResource("BoxShape3D_tefeu")
+
+[node name="Right Center" type="Camera3D" parent="Camera/Unused"]
+transform = Transform3D(0.6755902, 0, -0.7372773, 0, 1, 0, 0.7372773, 0, 0.6755902, -10.009, 201.801, 9.056)
+
+[node name="Area3D" type="Area3D" parent="Camera/Unused/Right Center"]
+transform = Transform3D(-9.726535, 0, -10.816125, 0, 3, 0, 10.647054, 0, -9.880989, -1.372113, -4.5028415, -24.751291)
+script = ExtResource("3_o6xl0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera/Unused/Right Center/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.910383e-11, 0, -0.3564533)
+shape = SubResource("BoxShape3D_tefeu")
+
 [connection signal="body_entered" from="Camera/Camera3D/Area3D" to="Camera/Camera3D/Area3D" method="enter_trigger"]
 [connection signal="body_exited" from="Camera/Camera3D/Area3D" to="Camera/Camera3D/Area3D" method="exit_trigger"]
 [connection signal="body_entered" from="Camera/Camera3D2/Area3D" to="Camera/Camera3D2/Area3D" method="enter_trigger"]
 [connection signal="body_exited" from="Camera/Camera3D2/Area3D" to="Camera/Camera3D2/Area3D" method="exit_trigger"]
-[connection signal="body_entered" from="Camera/Left Camera/Area3D" to="Camera/Left Camera/Area3D" method="enter_trigger"]
-[connection signal="body_exited" from="Camera/Left Camera/Area3D" to="Camera/Left Camera/Area3D" method="exit_trigger"]
-[connection signal="body_entered" from="Camera/Left Camera2/Area3D" to="Camera/Left Camera2/Area3D" method="enter_trigger"]
-[connection signal="body_exited" from="Camera/Left Camera2/Area3D" to="Camera/Left Camera2/Area3D" method="exit_trigger"]
-[connection signal="body_entered" from="Camera/Left Door Camera/Area3D" to="Camera/Left Door Camera/Area3D" method="enter_trigger"]
-[connection signal="body_exited" from="Camera/Left Door Camera/Area3D" to="Camera/Left Door Camera/Area3D" method="exit_trigger"]
-[connection signal="body_entered" from="Camera/Right Camera/Area3D" to="Camera/Right Camera/Area3D" method="enter_trigger"]
-[connection signal="body_exited" from="Camera/Right Camera/Area3D" to="Camera/Right Camera/Area3D" method="exit_trigger"]
-[connection signal="body_entered" from="Camera/Right Camera2/Area3D" to="Camera/Right Camera2/Area3D" method="enter_trigger"]
-[connection signal="body_exited" from="Camera/Right Camera2/Area3D" to="Camera/Right Camera2/Area3D" method="exit_trigger"]
-[connection signal="body_entered" from="Camera/Right Door Camera/Area3D" to="Camera/Right Door Camera/Area3D" method="enter_trigger"]
-[connection signal="body_exited" from="Camera/Right Door Camera/Area3D" to="Camera/Right Door Camera/Area3D" method="exit_trigger"]
 [connection signal="body_entered" from="Camera/Huge Main Center Camera/Area3D" to="Camera/Huge Main Center Camera/Area3D" method="enter_trigger"]
 [connection signal="body_exited" from="Camera/Huge Main Center Camera/Area3D" to="Camera/Huge Main Center Camera/Area3D" method="exit_trigger"]
-[connection signal="body_entered" from="Camera/Left Center/Area3D" to="Camera/Left Center/Area3D" method="enter_trigger"]
-[connection signal="body_exited" from="Camera/Left Center/Area3D" to="Camera/Left Center/Area3D" method="exit_trigger"]
-[connection signal="body_entered" from="Camera/Right Center/Area3D" to="Camera/Right Center/Area3D" method="enter_trigger"]
-[connection signal="body_exited" from="Camera/Right Center/Area3D" to="Camera/Right Center/Area3D" method="exit_trigger"]
 [connection signal="body_entered" from="Camera/Main Camera/Area3D" to="Camera/Main Camera/Area3D" method="enter_trigger"]
 [connection signal="body_exited" from="Camera/Main Camera/Area3D" to="Camera/Main Camera/Area3D" method="exit_trigger"]
 [connection signal="body_entered" from="Camera/Stairs Camera/Area3D" to="Camera/Stairs Camera/Area3D" method="enter_trigger"]
 [connection signal="body_exited" from="Camera/Stairs Camera/Area3D" to="Camera/Stairs Camera/Area3D" method="exit_trigger"]
 [connection signal="body_entered" from="Camera/Balcony Camera/Area3D" to="Camera/Balcony Camera/Area3D" method="enter_trigger"]
 [connection signal="body_exited" from="Camera/Balcony Camera/Area3D" to="Camera/Balcony Camera/Area3D" method="exit_trigger"]
+[connection signal="body_entered" from="Camera/Unused/Left Camera/Area3D" to="Camera/Unused/Left Camera/Area3D" method="enter_trigger"]
+[connection signal="body_exited" from="Camera/Unused/Left Camera/Area3D" to="Camera/Unused/Left Camera/Area3D" method="exit_trigger"]
+[connection signal="body_entered" from="Camera/Unused/Left Camera2/Area3D" to="Camera/Unused/Left Camera2/Area3D" method="enter_trigger"]
+[connection signal="body_exited" from="Camera/Unused/Left Camera2/Area3D" to="Camera/Unused/Left Camera2/Area3D" method="exit_trigger"]
+[connection signal="body_entered" from="Camera/Unused/Left Door Camera/Area3D" to="Camera/Unused/Left Door Camera/Area3D" method="enter_trigger"]
+[connection signal="body_exited" from="Camera/Unused/Left Door Camera/Area3D" to="Camera/Unused/Left Door Camera/Area3D" method="exit_trigger"]
+[connection signal="body_entered" from="Camera/Unused/Right Camera/Area3D" to="Camera/Unused/Right Camera/Area3D" method="enter_trigger"]
+[connection signal="body_exited" from="Camera/Unused/Right Camera/Area3D" to="Camera/Unused/Right Camera/Area3D" method="exit_trigger"]
+[connection signal="body_entered" from="Camera/Unused/Right Camera2/Area3D" to="Camera/Unused/Right Camera2/Area3D" method="enter_trigger"]
+[connection signal="body_exited" from="Camera/Unused/Right Camera2/Area3D" to="Camera/Unused/Right Camera2/Area3D" method="exit_trigger"]
+[connection signal="body_entered" from="Camera/Unused/Right Door Camera/Area3D" to="Camera/Unused/Right Door Camera/Area3D" method="enter_trigger"]
+[connection signal="body_exited" from="Camera/Unused/Right Door Camera/Area3D" to="Camera/Unused/Right Door Camera/Area3D" method="exit_trigger"]
+[connection signal="body_entered" from="Camera/Unused/Left Center/Area3D" to="Camera/Unused/Left Center/Area3D" method="enter_trigger"]
+[connection signal="body_exited" from="Camera/Unused/Left Center/Area3D" to="Camera/Unused/Left Center/Area3D" method="exit_trigger"]
+[connection signal="body_entered" from="Camera/Unused/Right Center/Area3D" to="Camera/Unused/Right Center/Area3D" method="enter_trigger"]
+[connection signal="body_exited" from="Camera/Unused/Right Center/Area3D" to="Camera/Unused/Right Center/Area3D" method="exit_trigger"]
