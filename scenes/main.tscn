@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b571ysf4uvwkl"]
+[gd_scene load_steps=12 format=3 uid="uid://b571ysf4uvwkl"]
 
 [ext_resource type="Script" uid="uid://checpego7bks" path="res://scripts/main.gd" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://dnn8wposvayv8" path="res://scenes/debug/debug_player.tscn" id="1_o5qli"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bi3mwbi4u34wn" path="res://scenes/UI/hud.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cvpudbsmmlqyb" path="res://assets/models/main_map.tscn" id="5_kry3j"]
 [ext_resource type="Script" uid="uid://buacatamw86mw" path="res://scripts/player/client_handler.gd" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://cfs7ns8sq3on5" path="res://assets/glb_models/journal.glb" id="6_tipki"]
 [ext_resource type="PackedScene" uid="uid://ctmki1i7tc6uo" path="res://scenes/context_zone.tscn" id="7_o6xl0"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_o6xl0"]
@@ -50,9 +51,13 @@ text_key = "journal_1"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Journal_1"]
 transform = Transform3D(0.32500002, 0, 0, 0, 0.053333335, 0, 0, 0, 0.235, -0.02038145, -0.39666933, 0.18306005)
+visible = false
 mesh = SubResource("BoxMesh_o6xl0")
 skeleton = NodePath("../../Whiteboxing")
 surface_material_override/0 = SubResource("StandardMaterial3D_tipki")
+
+[node name="journal" parent="Journal_1" instance=ExtResource("6_tipki")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -0.42146403, 0.2569178)
 
 [node name="Journal_2" parent="." instance=ExtResource("7_o6xl0")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 10.211838, 1.2906948, -9.77585)
@@ -60,9 +65,13 @@ text_key = "journal_2"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Journal_2"]
 transform = Transform3D(0.32500002, 0, 0, 0, 0.053333335, 0, 0, 0, 0.235, -0.02038145, -0.39666933, 0.18306005)
+visible = false
 mesh = SubResource("BoxMesh_o6xl0")
 skeleton = NodePath("../../Whiteboxing")
 surface_material_override/0 = SubResource("StandardMaterial3D_tipki")
+
+[node name="journal" parent="Journal_2" instance=ExtResource("6_tipki")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -0.42146403, 0.2569178)
 
 [node name="Journal_3" parent="." instance=ExtResource("7_o6xl0")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.19446278, 6.422065, -17.8964)
@@ -70,9 +79,13 @@ text_key = "journal_3"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Journal_3"]
 transform = Transform3D(0.32500002, 0, 0, 0, 0.053333335, 0, 0, 0, 0.235, -0.02038145, -0.39666933, 0.18306005)
+visible = false
 mesh = SubResource("BoxMesh_o6xl0")
 skeleton = NodePath("../../Whiteboxing")
 surface_material_override/0 = SubResource("StandardMaterial3D_tipki")
+
+[node name="journal" parent="Journal_3" instance=ExtResource("6_tipki")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -0.42146403, 0.2569178)
 
 [node name="main_map" parent="." instance=ExtResource("5_kry3j")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.03275585, 0.01945448, 0.007742882)

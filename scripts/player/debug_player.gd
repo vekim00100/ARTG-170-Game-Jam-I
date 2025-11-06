@@ -3,8 +3,9 @@ extends CharacterBody3D
 
 signal playerDeath
 
-@onready var player_model = $janedoe
+@onready var player_model = $lowpoly2
 @onready var alert = $Alert 
+@onready var animation_player = $lowpoly2/AnimationPlayer
 
 # Player health variables:
 var blood_level = 100.0
@@ -20,7 +21,6 @@ const JUMP_VELOCITY = 4.5
 
 func _ready()-> void:
 	SignalBus.connect("player_interaction_available", player_interaction)
-	# Dialogic.connect("scripted_damage_burn", script_damage_burn)
 	await get_tree().create_timer(.10).timeout
 	alert.hide()
 
@@ -30,7 +30,10 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 	
 	if velocity: #Handles looking direction we're moving.
+		animation_player.play("run")
 		player_model.rotation.y = atan2(velocity.x, velocity.z)
+	else:
+		animation_player.play("idle")
 	move_and_slide()
 	
 func _process(_delta: float) -> void:
@@ -88,3 +91,12 @@ func player_interaction(text_key):
 		alert.show()
 	else:
 		alert.hide()
+
+func freeze_control():
+	set_process_input(false)
+	set_process_unhandled_input(false)
+	
+func grant_control():
+	set_process_input(true)
+	set_process_unhandled_input(true)
+	
