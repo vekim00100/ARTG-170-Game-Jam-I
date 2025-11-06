@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://b571ysf4uvwkl"]
+[gd_scene load_steps=11 format=3 uid="uid://b571ysf4uvwkl"]
 
 [ext_resource type="Script" uid="uid://checpego7bks" path="res://scripts/main.gd" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://dnn8wposvayv8" path="res://scenes/debug/debug_player.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://dqvsx3sp70yev" path="res://scripts/camera_trigger.gd" id="3_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://bi3mwbi4u34wn" path="res://scenes/UI/hud.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cvpudbsmmlqyb" path="res://assets/models/main_map.tscn" id="5_kry3j"]
 [ext_resource type="Script" uid="uid://buacatamw86mw" path="res://scripts/player/client_handler.gd" id="5_tbgi4"]
@@ -11,6 +12,8 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tipki"]
 albedo_color = Color(0.5452307, 0.19142678, 7.2196127e-07, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tefeu"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_0wfyh")
@@ -32,11 +35,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_tipki")
 transform = Transform3D(1, 0, 0, 0, -0.9996227, 0.02746799, 0, -0.02746799, -0.9996227, -0.13417435, 23.63969, -9.88443)
 
 [node name="Debug Player" parent="." instance=ExtResource("1_o5qli")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.005363941, 1.298933, 2.3461645)
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.9916216, 0.12917641, 0, -0.12917641, 0.9916216, 0, 17.491377, 6.266116)
-current = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.005363941, 0.7644651, 20.621792)
 
 [node name="HUD" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_sugp2")]
 player = NodePath("../Debug Player")
@@ -56,3 +55,41 @@ text_key = "journal_1"
 
 [node name="main_map" parent="." instance=ExtResource("5_kry3j")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.03275585, 0.01945448, 0.007742882)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.7382672, 0.67450875, 0, -0.67450875, 0.7382672, 0, 2.0399609, 22.03185)
+current = true
+
+[node name="Area3D" type="Area3D" parent="Camera3D"]
+transform = Transform3D(6.186873, 0, 0, 0, 1.6889936, -1.8455957, 0, 1.5437775, 2.0192025, 0, 0.20099866, -1.3705515)
+script = ExtResource("3_o6xl0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/Area3D"]
+shape = SubResource("BoxShape3D_tefeu")
+
+[node name="Camera3D2" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.9748391, 0.22290982, 0, -0.22290982, 0.9748391, 0, 12.13156, 22.20846)
+
+[node name="Area3D" type="Area3D" parent="Camera3D2"]
+transform = Transform3D(6.186873, 0, 0, 0, 2.2304673, -2.5662918, 0, 0.5108452, 11.205017, 0, -8.691361, -10.821725)
+script = ExtResource("3_o6xl0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D2/Area3D"]
+shape = SubResource("BoxShape3D_tefeu")
+
+[node name="Camera3D3" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.99189895, 0.12702996, 0, -0.12702996, 0.99189895, 0, 13.851114, 0.7253542)
+
+[node name="Area3D" type="Area3D" parent="Camera3D3"]
+transform = Transform3D(6.186873, 0, 0, 0, 2.269672, -4.023874, 0, 0.2907517, 31.411242, 0, -11.305151, -11.156559)
+script = ExtResource("3_o6xl0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D3/Area3D"]
+shape = SubResource("BoxShape3D_tefeu")
+
+[connection signal="body_entered" from="Camera3D/Area3D" to="Camera3D/Area3D" method="enter_trigger"]
+[connection signal="body_exited" from="Camera3D/Area3D" to="Camera3D/Area3D" method="exit_trigger"]
+[connection signal="body_entered" from="Camera3D2/Area3D" to="Camera3D2/Area3D" method="enter_trigger"]
+[connection signal="body_exited" from="Camera3D2/Area3D" to="Camera3D2/Area3D" method="exit_trigger"]
+[connection signal="body_entered" from="Camera3D3/Area3D" to="Camera3D3/Area3D" method="enter_trigger"]
+[connection signal="body_exited" from="Camera3D3/Area3D" to="Camera3D3/Area3D" method="exit_trigger"]

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ARTG 170 Game Jam I"
-run/main_scene="uid://dtl1cdjyn028c"
+run/main_scene="uid://b571ysf4uvwkl"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
