@@ -13,4 +13,6 @@ else:
 	[It crackles, pops, and detonates. Your host's hand is caught within.]
 	[style name="Style_Parasite_Purple"]
 	parasite: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA!
+	[style name="Style"]
+	[It hurts. It hurts so bad.]
 set {journal_3_read} = true
