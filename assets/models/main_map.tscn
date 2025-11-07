@@ -1,4 +1,4 @@
-[gd_scene load_steps=111 format=4 uid="uid://cvpudbsmmlqyb"]
+[gd_scene load_steps=112 format=4 uid="uid://cvpudbsmmlqyb"]
 
 [ext_resource type="Texture2D" uid="uid://bwi3jvlqrbuh5" path="res://assets/glb_models/main_map_carpet texture.jpg" id="1_1xo34"]
 [ext_resource type="Texture2D" uid="uid://cu2sahjm8majs" path="res://assets/glb_models/main_map_grey marble texture.jpg" id="2_eqscl"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://mhtxdbilbgkq" path="res://assets/scenery/wall.tscn" id="10_ru2jy"]
 [ext_resource type="Texture2D" uid="uid://cu1dwbhay7k40" path="res://assets/textures/classic_door.jpg" id="11_mvm66"]
 [ext_resource type="Script" uid="uid://d2ghjp16de22f" path="res://scripts/door.gd" id="12_mvm66"]
+[ext_resource type="PackedScene" uid="uid://25yyqlw5sd6u" path="res://assets/scenery/light.tscn" id="13_mvm66"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lb33q"]
 resource_name = "Material.002"
@@ -1172,6 +1173,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.654, 0.409, 0)
 shape = SubResource("BoxShape3D_mvm66")
 
 [node name="wall" parent="." instance=ExtResource("10_ru2jy")]
+
+[node name="Light" parent="." instance=ExtResource("13_mvm66")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 32.809284, 0)
 
 [connection signal="body_entered" from="Left Door/door" to="Left Door/door" method="_on_body_entered"]
 [connection signal="body_exited" from="Left Door/door" to="Left Door/door" method="_on_body_exited"]
