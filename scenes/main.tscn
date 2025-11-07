@@ -113,29 +113,27 @@ surface_material_override/0 = SubResource("StandardMaterial3D_85g3d")
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -5.4091215e-06, 25.816822, 61.87307)
 mesh = SubResource("SphereMesh_ya4ey")
 
-[node name="Camera" type="Node" parent="."]
-
-[node name="Room Camera" type="Camera3D" parent="Other Camera"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.03987, 6.733721, 14.277737)
+[node name="Room Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.852932, 6.733721, 16.619368)
 current = true
 
-[node name="Area3D" type="Area3D" parent="Other Camera/Room Camera"]
-transform = Transform3D(6.370787, 0, 0, 0, 3, 0, 0, 0, 11.454731, 1.3381499, -5.43207, -15.278305)
+[node name="Area3D" type="Area3D" parent="Room Camera"]
+transform = Transform3D(30, 0, 0, 0, 3, 0, 0, 0, 30, 2.7773323, -6.027726, -16.096138)
 script = ExtResource("3_o6xl0")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Other Camera/Room Camera/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room Camera/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 1.5570549e-09, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_tefeu")
 
-[node name="Kitchen Camera" type="Camera3D" parent="Other Camera"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.818645, 6.6551085, 15.359831)
+[node name="Kitchen Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.43587, 6.6551085, 16.315237)
 current = true
 
-[node name="Area3D" type="Area3D" parent="Other Camera/Kitchen Camera"]
-transform = Transform3D(6.370787, 0, 0, 0, 3, 0, 0, 0, 11.454731, 2.3865166, -5.43207, -15.278305)
+[node name="Area3D" type="Area3D" parent="Kitchen Camera"]
+transform = Transform3D(30, 0, 0, 0, 3, 0, 0, 0, 30, 0, -4.8396435, -17.617994)
 script = ExtResource("3_o6xl0")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Other Camera/Kitchen Camera/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Kitchen Camera/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 1.5570549e-09, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_tefeu")
 
@@ -286,10 +284,10 @@ script = ExtResource("3_o6xl0")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Main Camera/Balcony Camera/Area3D"]
 shape = SubResource("BoxShape3D_tefeu")
 
-[connection signal="body_entered" from="Other Camera/Room Camera/Area3D" to="Other Camera/Room Camera/Area3D" method="enter_trigger"]
-[connection signal="body_exited" from="Other Camera/Room Camera/Area3D" to="Other Camera/Room Camera/Area3D" method="exit_trigger"]
-[connection signal="body_entered" from="Other Camera/Kitchen Camera/Area3D" to="Other Camera/Kitchen Camera/Area3D" method="enter_trigger"]
-[connection signal="body_exited" from="Other Camera/Kitchen Camera/Area3D" to="Other Camera/Kitchen Camera/Area3D" method="exit_trigger"]
+[connection signal="body_entered" from="Room Camera/Area3D" to="Room Camera/Area3D" method="enter_trigger"]
+[connection signal="body_exited" from="Room Camera/Area3D" to="Room Camera/Area3D" method="exit_trigger"]
+[connection signal="body_entered" from="Kitchen Camera/Area3D" to="Kitchen Camera/Area3D" method="enter_trigger"]
+[connection signal="body_exited" from="Kitchen Camera/Area3D" to="Kitchen Camera/Area3D" method="exit_trigger"]
 [connection signal="body_entered" from="Main Camera/Camera3D/Area3D" to="Main Camera/Camera3D/Area3D" method="enter_trigger"]
 [connection signal="body_exited" from="Main Camera/Camera3D/Area3D" to="Main Camera/Camera3D/Area3D" method="exit_trigger"]
 [connection signal="body_entered" from="Main Camera/Camera3D2/Area3D" to="Main Camera/Camera3D2/Area3D" method="enter_trigger"]
