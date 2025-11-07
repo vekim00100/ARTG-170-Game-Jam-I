@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://b74ftghwohmpc"]
+
+[ext_resource type="PackedScene" uid="uid://dhjiopl6r1qxf" path="res://assets/models/CandleStand.glb" id="1_abnun"]
+[ext_resource type="Texture2D" uid="uid://cjv13mucwu0e5" path="res://assets/textures/brick-wall-background-texture.jpg" id="2_m57yx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dfvjh"]
+albedo_color = Color(0.34968925, 0.34968933, 0.3496893, 1)
+albedo_texture = ExtResource("2_m57yx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_615bs"]
+
+[node name="CandleStand" instance=ExtResource("1_abnun")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="CandleStand_001" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_dfvjh")
+
+[node name="Candle" parent="." index="1"]
+material_override = SubResource("StandardMaterial3D_615bs")
+
+[node name="CandleStand" parent="." index="2"]
+material_override = SubResource("StandardMaterial3D_dfvjh")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.009129167, 0.31537876, 0)
+light_color = Color(1, 0.64705884, 0.45490196, 1)
