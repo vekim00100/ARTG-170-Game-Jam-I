@@ -77,7 +77,7 @@ transform = Transform3D(1, 0, 0, 0, -0.9996227, 0.02746799, 0, -0.02746799, -0.9
 visible = false
 
 [node name="Debug Player" parent="." instance=ExtResource("1_o5qli")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.37763, 0.6749591, 6.147975)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.044674, 0.6749591, 6.147975)
 
 [node name="HUD" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_sugp2")]
 player = NodePath("../Debug Player")
@@ -150,11 +150,11 @@ size = Vector3(2, 0.830719, 2)
 texture_albedo = ExtResource("8_85g3d")
 
 [node name="Room Camera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.852932, 6.733721, 16.619368)
+transform = Transform3D(1, 0, 0, 0, 0.9285053, 0.37131923, 0, -0.37131923, 0.9285053, 47.60075, 12.3555565, 16.619368)
 current = true
 
 [node name="Area3D" type="Area3D" parent="Room Camera"]
-transform = Transform3D(30, 0, 0, 0, 3, 0, 0, 0, 30, 2.7773323, -6.027726, -16.096138)
+transform = Transform3D(30, 0, 0, 0, 2.7620044, -11.710362, 0, 1.1710364, 27.620052, 1.003582, -4.6676397, -19.497112)
 script = ExtResource("3_o6xl0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Room Camera/Area3D"]
@@ -408,7 +408,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_tipki")
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -0.42146403, 0.2569178)
 
 [node name="Journal_3" parent="Context Zones" instance=ExtResource("7_o6xl0")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.19446278, 11.560771, -38.486736)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 45.326763, 1.3961115, -4.9706726)
 text_key = "journal_3"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Context Zones/Journal_3"]

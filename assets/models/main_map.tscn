@@ -1,4 +1,4 @@
-[gd_scene load_steps=124 format=4 uid="uid://cvpudbsmmlqyb"]
+[gd_scene load_steps=129 format=4 uid="uid://cvpudbsmmlqyb"]
 
 [ext_resource type="Texture2D" uid="uid://bwi3jvlqrbuh5" path="res://assets/glb_models/main_map_carpet texture.jpg" id="1_1xo34"]
 [ext_resource type="Texture2D" uid="uid://cu2sahjm8majs" path="res://assets/glb_models/main_map_grey marble texture.jpg" id="2_eqscl"]
@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://cn1hqmdhbvhwm" path="res://assets/scenery/glass.tscn" id="11_udl28"]
 [ext_resource type="PackedScene" uid="uid://be1k2gr3rut36" path="res://assets/scenery/plate.tscn" id="12_cbu2c"]
 [ext_resource type="Script" uid="uid://d2ghjp16de22f" path="res://scripts/door.gd" id="12_mvm66"]
+[ext_resource type="Texture2D" uid="uid://dqorvyqnbv2hu" path="res://assets/textures/wood_planks_fancy_03.jpg" id="13_bv51j"]
+[ext_resource type="Texture2D" uid="uid://bv4tgb1mq48hg" path="res://assets/textures/Pared.jpg" id="13_f0mqr"]
 [ext_resource type="PackedScene" uid="uid://25yyqlw5sd6u" path="res://assets/scenery/light.tscn" id="13_mvm66"]
 [ext_resource type="PackedScene" uid="uid://b74ftghwohmpc" path="res://assets/scenery/candle.tscn" id="14_38877"]
 [ext_resource type="Texture2D" uid="uid://dl45y2cqacoy1" path="res://assets/Textures/moon txture.jpg" id="15_k767d"]
@@ -607,6 +609,8 @@ albedo_texture = ExtResource("5_ksq80")
 [sub_resource type="BoxShape3D" id="BoxShape3D_50gle"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_50gle"]
+albedo_texture = ExtResource("13_f0mqr")
+uv1_scale = Vector3(1.5, 5, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fbgds"]
 
@@ -664,6 +668,10 @@ shadow_mesh = SubResource("ArrayMesh_ilocx")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rk4p5"]
 data = PackedVector3Array(-16.5884, 33.8645, 16.5879, -16.5884, 0, -16.5884, -16.5884, 0, 16.5879, -16.5884, 33.8645, 16.5879, -16.5884, 33.8645, -16.5884, -16.5884, 0, -16.5884, -17.414299, -0.9641, -17.414299, 17.414299, 33.8645, -17.414299, -17.414299, 33.8645, -17.414299, -17.414299, -0.9641, -17.414299, 17.414299, -0.9641, -17.414299, 17.414299, 33.8645, -17.414299, 17.414299, 0, -1.5643, 17.414299, 33.8645, -17.414299, 17.414299, -0.9641, -17.414299, 17.414299, 0, 1.5638, 17.414299, 0, -1.5643, 17.414299, -0.9641, -17.414299, 17.414299, 6.1110997, -1.5643, 17.414299, 33.8645, -17.414299, 17.414299, 0, -1.5643, 17.414299, 0, 1.5638, 17.414299, -0.9641, -17.414299, 17.414299, -0.9641, 17.414299, 17.414299, 33.8645, -17.414299, 17.414299, 6.1110997, -1.5643, 17.414299, 6.1110997, 1.5638, 17.414299, -0.9641, 17.414299, 17.414299, 6.1110997, 1.5638, 17.414299, 0, 1.5638, 17.414299, 33.8645, -17.414299, 17.414299, 6.1110997, 1.5638, 17.414299, -0.9641, 17.414299, 17.414299, 33.8645, -17.414299, 17.414299, -0.9641, 17.414299, 17.414299, 33.8645, 17.414299, 17.414299, -0.9641, 17.414299, -17.414299, 33.8645, 17.414299, 17.414299, 33.8645, 17.414299, 17.414299, -0.9641, 17.414299, -17.414299, -0.9641, 17.414299, -17.414299, 33.8645, 17.414299, -17.414299, -0.9641, -17.414299, 17.414299, -0.9641, 17.414299, 17.414299, -0.9641, -17.414299, -17.414299, -0.9641, -17.414299, -17.414299, -0.9641, 17.414299, 17.414299, -0.9641, 17.414299, -16.5884, 33.8645, 16.5879, -17.414299, 33.8645, -17.414299, -16.5884, 33.8645, -16.5884, 17.414299, 33.8645, -17.414299, -16.5884, 33.8645, -16.5884, -17.414299, 33.8645, -17.414299, -16.5884, 33.8645, 16.5879, -17.414299, 33.8645, 17.414299, -17.414299, 33.8645, -17.414299, 16.5879, 33.8645, -16.5884, -16.5884, 33.8645, -16.5884, 17.414299, 33.8645, -17.414299, -16.5884, 33.8645, 16.5879, 16.5879, 33.8645, 16.5879, -17.414299, 33.8645, 17.414299, 16.5879, 33.8645, -16.5884, 17.414299, 33.8645, -17.414299, 17.414299, 33.8645, 17.414299, -17.414299, 33.8645, 17.414299, 16.5879, 33.8645, 16.5879, 17.414299, 33.8645, 17.414299, 16.5879, 33.8645, -16.5884, 17.414299, 33.8645, 17.414299, 16.5879, 33.8645, 16.5879, -16.5884, 33.8645, -16.5884, 16.5879, 0, -16.5884, -16.5884, 0, -16.5884, -16.5884, 33.8645, -16.5884, 16.5879, 33.8645, -16.5884, 16.5879, 0, -16.5884, 16.5879, 6.1110997, 1.5638, 16.5879, 0, 16.5879, 16.5879, 0, 1.5638, 16.5879, 6.1110997, 1.5638, 16.5879, 33.8645, -16.5884, 16.5879, 0, 16.5879, 16.5879, 0, 16.5879, 16.5879, 33.8645, -16.5884, 16.5879, 33.8645, 16.5879, 16.5879, 33.8645, -16.5884, 16.5879, 6.1110997, 1.5638, 16.5879, 6.1110997, -1.5643, 16.5879, 33.8645, -16.5884, 16.5879, 6.1110997, -1.5643, 16.5879, 0, -1.5643, 16.5879, 33.8645, -16.5884, 16.5879, 0, -1.5643, 16.5879, 0, -16.5884, 16.5879, 0, 16.5879, -16.5884, 33.8645, 16.5879, -16.5884, 0, 16.5879, 16.5879, 0, 16.5879, 16.5879, 33.8645, 16.5879, -16.5884, 33.8645, 16.5879, -17.414299, 33.8645, 17.414299, -17.414299, -0.9641, -17.414299, -17.414299, 33.8645, -17.414299, -17.414299, 33.8645, 17.414299, -17.414299, -0.9641, 17.414299, -17.414299, -0.9641, -17.414299, 16.5884, 6.1115, 1.5640999, 17.414299, 0, 1.5640999, 17.414299, 6.1115, 1.5640999, 16.5884, 6.1115, 1.5640999, 16.5884, 0, 1.5640999, 17.414299, 0, 1.5640999, 16.5884, 0, -1.5640999, 17.414299, 6.1115, -1.5640999, 17.414299, 0, -1.5640999, 16.5884, 0, -1.5640999, 16.5884, 6.1115, -1.5640999, 17.414299, 6.1115, -1.5640999, 17.414299, 0, 1.5640999, 16.5884, 0, -1.5640999, 17.414299, 0, -1.5640999, 17.414299, 0, 1.5640999, 16.5884, 0, 1.5640999, 16.5884, 0, -1.5640999, 16.5884, 6.1115, -1.5640999, 17.414299, 6.1115, 1.5640999, 17.414299, 6.1115, -1.5640999, 16.5884, 6.1115, -1.5640999, 16.5884, 6.1115, 1.5640999, 17.414299, 6.1115, 1.5640999)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iejj2"]
+albedo_texture = ExtResource("13_bv51j")
+uv1_scale = Vector3(10, 10, 10)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p3xdi"]
 
@@ -880,6 +888,13 @@ size = Vector3(1, 5.1, 4)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_k767d"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nfqfr"]
+emission_enabled = true
+emission = Color(0.9106731, 0.8073976, 0.32126358, 1)
+emission_energy_multiplier = 3.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_nfqfr"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bv51j"]
 albedo_color = Color(0.7708395, 0.77083945, 0.77083945, 1)
 albedo_texture = ExtResource("15_k767d")
@@ -1071,6 +1086,7 @@ shape = SubResource("ConcavePolygonShape3D_rk4p5")
 
 [node name="Room 2 Floor" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.8531068, 0, 0, 0, 1, -50, 0, 0)
+material_override = SubResource("StandardMaterial3D_iejj2")
 mesh = SubResource("ArrayMesh_qeggd")
 skeleton = NodePath("")
 
@@ -1244,8 +1260,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 32.809284, 0)
 [node name="Light" parent="Light" instance=ExtResource("13_mvm66")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.76114, -3.9272232, 0)
 
+[node name="Light" type="Node3D" parent="Light/Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -117.78584, -3.9272232, 0)
+
+[node name="Circle" type="MeshInstance3D" parent="Light/Light/Light"]
+material_override = SubResource("StandardMaterial3D_nfqfr")
+mesh = SubResource("SphereMesh_nfqfr")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Light/Light/Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.3310413, 0)
+light_color = Color(0.4117647, 1, 0.39215687, 1)
+shadow_enabled = true
+omni_range = 45.0
+
 [node name="Moon" type="MeshInstance3D" parent="."]
-transform = Transform3D(-3.9970248, -0.06906632, -0.13792287, 2.7043896e-07, 3.576617, -1.7910362, 0.15424938, -1.7897041, -3.5739567, 3.7024958, 27.98988, 61.87307)
+transform = Transform3D(-3.9970248, -0.06906632, -0.13792287, 2.7043896e-07, 3.576617, -1.7910362, 0.15424938, -1.7897041, -3.5739567, 3.2813036, 27.98988, 61.87307)
 material_override = SubResource("StandardMaterial3D_bv51j")
 mesh = SubResource("SphereMesh_38877")
 skeleton = NodePath("../CandleStand3")
