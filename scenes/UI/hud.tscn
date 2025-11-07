@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bi3mwbi4u34wn"]
+[gd_scene load_steps=22 format=3 uid="uid://bi3mwbi4u34wn"]
 
 [ext_resource type="Script" uid="uid://b4xyk1sblajjy" path="res://scripts/UI/hud.gd" id="1_c4vmg"]
 [ext_resource type="FontFile" uid="uid://cp7py1fuqvw2e" path="res://assets/fonts/PixelOperator8.ttf" id="2_0fcg2"]
@@ -97,6 +97,21 @@ animations = [{
 font_size = 64
 font_color = Color(0.52026945, 1.4980697e-06, 3.3691526e-07, 1)
 
+[sub_resource type="Gradient" id="Gradient_0fcg2"]
+offsets = PackedFloat32Array(0, 0.95652175)
+colors = PackedColorArray(1, 1, 0.3647059, 1, 1, 1, 0.5882353, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_qe851"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ggbtr"]
+width = 64
+height = 64
+noise = SubResource("FastNoiseLite_qe851")
+color_ramp = SubResource("Gradient_0fcg2")
+seamless = true
+normalize = false
+seamless_blend_skirt = 0.208
+
 [node name="HUD" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -118,6 +133,7 @@ grow_horizontal = 0
 scale = Vector2(0.5, 0.5)
 
 [node name="Debug_Blood" type="ProgressBar" parent="Debug"]
+z_index = 5
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -130,6 +146,7 @@ grow_horizontal = 0
 fill_mode = 3
 
 [node name="Debug_Pain" type="ProgressBar" parent="Debug"]
+z_index = 5
 layout_mode = 1
 offset_left = -84.0
 offset_top = 32.0
@@ -155,6 +172,7 @@ text = "Pain  Blood"
 label_settings = SubResource("LabelSettings_ggbtr")
 
 [node name="Wound Control" type="Control" parent="Debug"]
+z_index = 5
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -164,6 +182,7 @@ offset_bottom = 40.0
 grow_horizontal = 0
 
 [node name="Debug_Wound_Laceration" type="Button" parent="Debug/Wound Control"]
+z_index = 5
 layout_mode = 0
 offset_left = -496.0
 offset_top = 18.0
@@ -172,6 +191,7 @@ offset_bottom = 49.0
 text = "Lacerate"
 
 [node name="Debug_Wound_Puncture" type="Button" parent="Debug/Wound Control"]
+z_index = 5
 layout_mode = 0
 offset_left = -496.0
 offset_top = 53.0
@@ -217,6 +237,7 @@ autoplay = "default"
 frame_progress = 0.5675913
 
 [node name="Death" type="Control" parent="."]
+visible = false
 z_index = 100
 layout_mode = 1
 anchors_preset = 8
@@ -250,12 +271,29 @@ label_settings = SubResource("LabelSettings_kj32l")
 horizontal_alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="Death"]
+z_index = 100
 layout_mode = 0
 offset_left = -556.0
 offset_top = -304.0
 offset_right = 596.0
 offset_bottom = 344.0
 color = Color(0, 0, 0, 1)
+
+[node name="Pain" type="TextureProgressBar" parent="."]
+z_index = -2
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -41.0
+offset_top = 7.0000305
+offset_right = 23.0
+offset_bottom = 71.00003
+grow_horizontal = 0
+rotation = -0.79237145
+scale = Vector2(0.545, 0.545)
+fill_mode = 5
+texture_progress = SubResource("NoiseTexture2D_ggbtr")
 
 [connection signal="pressed" from="Debug/Wound Control/Debug_Wound_Laceration" to="." method="_on_debug_wound_laceration_pressed"]
 [connection signal="pressed" from="Debug/Wound Control/Debug_Wound_Puncture" to="." method="_on_debug_wound_puncture_pressed"]

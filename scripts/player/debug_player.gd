@@ -1,7 +1,6 @@
 class_name Player
 extends CharacterBody3D
 
-signal playerDeath
 
 @onready var player_model = $lowpoly2
 @onready var alert = $Alert 
@@ -21,6 +20,7 @@ const JUMP_VELOCITY = 4.5
 
 func _ready()-> void:
 	SignalBus.connect("player_interaction_available", player_interaction)
+	Dialogic.connect("HandBurn", scripted_burn)
 	await get_tree().create_timer(.10).timeout
 	alert.hide()
 
@@ -47,9 +47,9 @@ func _process(_delta: float) -> void:
 			i.pain *= 1.2
 		if i.pain > i.wound_table[i.wound_type]["Pain"]:	#Recovery from exertion. 
 			i.pain *= .9
-		if blood_level <= 0:
+		if blood_level <= 0 || pain_level >= 100:
 			print("Player has died!")
-			playerDeath.emit()
+			SignalBus.player_death.emit()
 			break
 	
 	# Parasite movement around body.
@@ -91,6 +91,9 @@ func player_interaction(text_key):
 		alert.show()
 	else:
 		alert.hide()
+
+func scripted_burn():
+	add_wound("Burned", "Arm_L")
 
 func freeze_control():
 	set_process_input(false)
