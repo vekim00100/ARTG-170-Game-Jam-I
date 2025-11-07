@@ -20,6 +20,7 @@ const JUMP_VELOCITY = 4.5
 
 func _ready()-> void:
 	SignalBus.connect("player_interaction_available", player_interaction)
+	Dialogic.connect("HandBurn", scripted_burn)
 	await get_tree().create_timer(.10).timeout
 	alert.hide()
 
@@ -90,6 +91,9 @@ func player_interaction(text_key):
 		alert.show()
 	else:
 		alert.hide()
+
+func scripted_burn():
+	add_wound("Burned", "Arm_L")
 
 func freeze_control():
 	set_process_input(false)

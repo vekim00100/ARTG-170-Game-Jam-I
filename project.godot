@@ -27,6 +27,9 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "debug_timeline": "res://dialogue/timelines/debug_timeline.dtl",
+"examine_disgusting": "res://dialogue/timelines/examine_disgusting.dtl",
+"examine_statue": "res://dialogue/timelines/examine_statue.dtl",
+"examine_table": "res://dialogue/timelines/examine_table.dtl",
 "introduction_monologue": "res://dialogue/timelines/introduction_monologue.dtl",
 "journal_1": "res://dialogue/timelines/journal_1.dtl",
 "journal_2": "res://dialogue/timelines/journal_2.dtl",
