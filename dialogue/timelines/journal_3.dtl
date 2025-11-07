@@ -14,5 +14,6 @@ else:
 	[style name="Style_Parasite_Purple"]
 	parasite: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA!
 	[style name="Style"]
+	[signal arg="HandBurn"]
 	[It hurts. It hurts so bad.]
 set {journal_3_read} = true
