@@ -1,7 +1,6 @@
 class_name Player
 extends CharacterBody3D
 
-signal playerDeath
 
 @onready var player_model = $lowpoly2
 @onready var alert = $Alert 
@@ -49,7 +48,7 @@ func _process(_delta: float) -> void:
 			i.pain *= .9
 		if blood_level <= 0:
 			print("Player has died!")
-			playerDeath.emit()
+			SignalBus.player_death.emit()
 			break
 	
 	# Parasite movement around body.

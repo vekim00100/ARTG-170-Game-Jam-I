@@ -250,6 +250,7 @@ label_settings = SubResource("LabelSettings_kj32l")
 horizontal_alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="Death"]
+z_index = 100
 layout_mode = 0
 offset_left = -556.0
 offset_top = -304.0

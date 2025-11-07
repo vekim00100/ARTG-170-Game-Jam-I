@@ -14,6 +14,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	SignalBus.connect("player_death", player_death)
 	debug_menu.hide()
 	death_menu.hide()
 
@@ -45,3 +46,6 @@ func updateUI():
 	doll_blood_bar.value = player.blood_level
 	
 	parasite_sprite.animation = player.parasite_location
+
+func player_death():
+	death_menu.show()
