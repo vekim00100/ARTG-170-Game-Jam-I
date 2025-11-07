@@ -11,6 +11,7 @@ extends Control
 @onready var debug_wound_display = $Debug/Debug_Wounds
 @onready var doll_blood_bar = $Doll/Blood_Level
 @onready var parasite_sprite = $Doll/Parasite
+@onready var pain_overlay = $Pain
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,7 +21,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	
 	
 	updateUI()
 	
@@ -40,10 +40,12 @@ func _on_debug_wound_puncture_pressed() -> void:
 	player.add_wound("Puncture", "Chest")
 
 func updateUI():
-	# UI tracked stats
+	# Debug tracked stats
 	debug_blood_bar.value = player.blood_level
 	debug_pain_bar.value = player.pain_level
+	# UI tracked stats
 	doll_blood_bar.value = player.blood_level
+	pain_overlay.value = player.pain_level
 	
 	parasite_sprite.animation = player.parasite_location
 

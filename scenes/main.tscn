@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b571ysf4uvwkl"]
+[gd_scene load_steps=18 format=3 uid="uid://b571ysf4uvwkl"]
 
 [ext_resource type="Script" uid="uid://checpego7bks" path="res://scripts/main.gd" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://dnn8wposvayv8" path="res://scenes/debug/debug_player.tscn" id="1_o5qli"]
@@ -29,6 +29,10 @@ emission = Color(1, 1, 1, 1)
 material = SubResource("StandardMaterial3D_choun")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tefeu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tipki"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_85g3d"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_0wfyh")
@@ -283,6 +287,46 @@ script = ExtResource("3_o6xl0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Main Camera/Balcony Camera/Area3D"]
 shape = SubResource("BoxShape3D_tefeu")
+
+[node name="Furniture" type="Node" parent="."]
+
+[node name="Main Statues" type="Node3D" parent="Furniture"]
+
+[node name="Statue" type="StaticBody3D" parent="Furniture/Main Statues"]
+transform = Transform3D(1.6, 0, 0, 0, 4, 0, 0, 0, 1.6, 23.434256, 1.8101873, -4.927642)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Furniture/Main Statues/Statue"]
+shape = SubResource("BoxShape3D_tipki")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Furniture/Main Statues/Statue"]
+mesh = SubResource("BoxMesh_85g3d")
+
+[node name="Statue2" type="StaticBody3D" parent="Furniture/Main Statues"]
+transform = Transform3D(1.6, 0, 0, 0, 4, 0, 0, 0, 1.6, 23.434256, 1.8101873, 4.8857775)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Furniture/Main Statues/Statue2"]
+shape = SubResource("BoxShape3D_tipki")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Furniture/Main Statues/Statue2"]
+mesh = SubResource("BoxMesh_85g3d")
+
+[node name="Statue3" type="StaticBody3D" parent="Furniture/Main Statues"]
+transform = Transform3D(1.6, 0, 0, 0, 4, 0, 0, 0, 1.6, -24.375595, 1.8101873, -4.927642)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Furniture/Main Statues/Statue3"]
+shape = SubResource("BoxShape3D_tipki")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Furniture/Main Statues/Statue3"]
+mesh = SubResource("BoxMesh_85g3d")
+
+[node name="Statue4" type="StaticBody3D" parent="Furniture/Main Statues"]
+transform = Transform3D(1.6, 0, 0, 0, 4, 0, 0, 0, 1.6, -24.375595, 1.8101873, 4.8857775)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Furniture/Main Statues/Statue4"]
+shape = SubResource("BoxShape3D_tipki")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Furniture/Main Statues/Statue4"]
+mesh = SubResource("BoxMesh_85g3d")
 
 [connection signal="body_entered" from="Room Camera/Area3D" to="Room Camera/Area3D" method="enter_trigger"]
 [connection signal="body_exited" from="Room Camera/Area3D" to="Room Camera/Area3D" method="exit_trigger"]

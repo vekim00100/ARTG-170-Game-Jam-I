@@ -46,7 +46,7 @@ func _process(_delta: float) -> void:
 			i.pain *= 1.2
 		if i.pain > i.wound_table[i.wound_type]["Pain"]:	#Recovery from exertion. 
 			i.pain *= .9
-		if blood_level <= 0:
+		if blood_level <= 0 || pain_level >= 100:
 			print("Player has died!")
 			SignalBus.player_death.emit()
 			break
