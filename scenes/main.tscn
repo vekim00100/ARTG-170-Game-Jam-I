@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://buacatamw86mw" path="res://scripts/player/client_handler.gd" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://cfs7ns8sq3on5" path="res://assets/glb_models/journal.glb" id="6_tipki"]
 [ext_resource type="PackedScene" uid="uid://ctmki1i7tc6uo" path="res://scenes/context_zone.tscn" id="7_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://chkjwi7rvrs6w" path="res://assets/textures/footprint.png" id="8_85g3d"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_tipki"]
 
@@ -72,7 +73,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1813936, 1.5733554, -2.871
 visible = false
 
 [node name="main_map" parent="." instance=ExtResource("5_kry3j")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.03275585, 0.01945448, 0.007742882)
+transform = Transform3D(-0.99999964, -0.0007166678, -0.0004300072, -0.0007166423, 0.99999976, -5.8420985e-05, 0.00043004975, -5.8106914e-05, -0.9999999, -0.028403044, 0.019988298, 0.0054864883)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="main_map"]
 transform = Transform3D(40, 0, 0, 0, 80, 0, 0, 0, 1, -5.453825e-06, 10.855774, 62.395275)
@@ -82,6 +83,56 @@ surface_material_override/0 = SubResource("StandardMaterial3D_85g3d")
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="main_map"]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -5.4091215e-06, 25.816822, 61.87307)
 mesh = SubResource("SphereMesh_ya4ey")
+
+[node name="Footprints" type="Decal" parent="."]
+transform = Transform3D(0.9985927, 0, -0.05303307, 0, 2, 0, 0.05303307, 0, 0.9985927, 4.2697916, 0.16676295, 17.385626)
+size = Vector3(2, 0.830719, 2)
+texture_albedo = ExtResource("8_85g3d")
+
+[node name="Decal" type="Decal" parent="Footprints"]
+transform = Transform3D(-0.25120795, 1.2416789e-08, -0.9679331, -1.509958e-07, -1, 2.6359835e-08, -0.9679331, 1.5277564e-07, 0.25120795, 2.393524, 0.16676307, -1.7384924)
+size = Vector3(2, 0.830719, 2)
+texture_albedo = ExtResource("8_85g3d")
+
+[node name="Decal" type="Decal" parent="Footprints/Decal"]
+transform = Transform3D(-0.2512079, 1.2416789e-08, -0.96793294, -1.5099577e-07, -1, 2.635983e-08, -0.96793294, 1.5277564e-07, 0.2512079, 2.393524, 0.16676307, -1.7384924)
+size = Vector3(2, 0.830719, 2)
+texture_albedo = ExtResource("8_85g3d")
+
+[node name="Decal" type="Decal" parent="Footprints/Decal/Decal"]
+transform = Transform3D(-0.2512079, 1.2416789e-08, -0.96793294, -1.5099577e-07, -1, 2.635983e-08, -0.96793294, 1.5277564e-07, 0.2512079, 2.393524, 0.16676307, -1.7384924)
+size = Vector3(2, 0.830719, 2)
+texture_albedo = ExtResource("8_85g3d")
+
+[node name="Decal" type="Decal" parent="Footprints/Decal/Decal/Decal"]
+transform = Transform3D(-0.25120795, 1.0554271e-08, -0.9679331, -1.509958e-07, -0.85, 2.6359835e-08, -0.9679331, 1.298593e-07, 0.25120795, 2.393524, 0.16676307, -1.7384924)
+size = Vector3(2, 0.830719, 2)
+texture_albedo = ExtResource("8_85g3d")
+
+[node name="Decal" type="Decal" parent="Footprints/Decal/Decal/Decal/Decal"]
+transform = Transform3D(-0.2512079, 1.117511e-08, -0.96793294, -1.5099577e-07, -0.9, 2.635983e-08, -0.96793294, 1.3749808e-07, 0.2512079, 2.393524, 0.16676307, -1.7384924)
+size = Vector3(2, 0.830719, 2)
+texture_albedo = ExtResource("8_85g3d")
+
+[node name="Decal" type="Decal" parent="Footprints/Decal/Decal/Decal/Decal/Decal"]
+transform = Transform3D(-0.25120795, 8.691752e-09, -0.9679331, -1.509958e-07, -0.7, 2.6359835e-08, -0.9679331, 1.0694295e-07, 0.25120795, 2.393524, 0.16676307, -1.7384924)
+size = Vector3(2, 0.830719, 2)
+texture_albedo = ExtResource("8_85g3d")
+
+[node name="Decal" type="Decal" parent="Footprints/Decal/Decal/Decal/Decal/Decal/Decal"]
+transform = Transform3D(-0.2512079, 1.117511e-08, -0.96793294, -1.5099577e-07, -0.9, 2.635983e-08, -0.96793294, 1.3749808e-07, 0.2512079, 2.393524, 0.16676307, -1.7384924)
+size = Vector3(2, 0.830719, 2)
+texture_albedo = ExtResource("8_85g3d")
+
+[node name="Decal" type="Decal" parent="Footprints/Decal/Decal/Decal/Decal/Decal/Decal/Decal"]
+transform = Transform3D(-0.55469924, 3.626647e-08, -0.83205074, -1.5099577e-07, -0.9, 5.2233815e-08, -0.83205074, 1.3914924e-07, 0.55469924, 2.194406, 0.16676304, -2.0370228)
+size = Vector3(2, 0.830719, 2)
+texture_albedo = ExtResource("8_85g3d")
+
+[node name="Decal" type="Decal" parent="Footprints/Decal/Decal/Decal/Decal/Decal/Decal/Decal/Decal"]
+transform = Transform3D(0.37170804, 2.5563423e-08, -0.9283497, -1.509958e-07, -0.8, -9.487872e-08, -0.9283497, 1.4035527e-07, -0.37170804, 2.744722, 0.16676317, -1.3390225)
+size = Vector3(2, 0.830719, 2)
+texture_albedo = ExtResource("8_85g3d")
 
 [node name="Room Camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.852932, 6.733721, 16.619368)
