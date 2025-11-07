@@ -77,17 +77,29 @@ surface_material_override/0 = SubResource("StandardMaterial3D_tipki")
 [node name="main_map" parent="." instance=ExtResource("5_kry3j")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.03275585, 0.01945448, 0.007742882)
 
-[node name="Kitchen Camera" type="Node" parent="."]
+[node name="Other Camera" type="Node" parent="."]
 
-[node name="Camera3D" type="Camera3D" parent="Kitchen Camera"]
+[node name="Room Camera" type="Camera3D" parent="Other Camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.03987, 6.733721, 14.277737)
+current = true
+
+[node name="Area3D" type="Area3D" parent="Other Camera/Room Camera"]
+transform = Transform3D(6.370787, 0, 0, 0, 3, 0, 0, 0, 11.454731, 1.3381499, -5.43207, -15.278305)
+script = ExtResource("3_o6xl0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Other Camera/Room Camera/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 1.5570549e-09, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_tefeu")
+
+[node name="Kitchen Camera" type="Camera3D" parent="Other Camera"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.818645, 6.6551085, 15.359831)
 current = true
 
-[node name="Area3D" type="Area3D" parent="Kitchen Camera/Camera3D"]
+[node name="Area3D" type="Area3D" parent="Other Camera/Kitchen Camera"]
 transform = Transform3D(6.370787, 0, 0, 0, 3, 0, 0, 0, 11.454731, 2.3865166, -5.43207, -15.278305)
 script = ExtResource("3_o6xl0")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Kitchen Camera/Camera3D/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Other Camera/Kitchen Camera/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 1.5570549e-09, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_tefeu")
 
@@ -238,8 +250,10 @@ script = ExtResource("3_o6xl0")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Main Camera/Balcony Camera/Area3D"]
 shape = SubResource("BoxShape3D_tefeu")
 
-[connection signal="body_entered" from="Kitchen Camera/Camera3D/Area3D" to="Kitchen Camera/Camera3D/Area3D" method="enter_trigger"]
-[connection signal="body_exited" from="Kitchen Camera/Camera3D/Area3D" to="Kitchen Camera/Camera3D/Area3D" method="exit_trigger"]
+[connection signal="body_entered" from="Other Camera/Room Camera/Area3D" to="Other Camera/Room Camera/Area3D" method="enter_trigger"]
+[connection signal="body_exited" from="Other Camera/Room Camera/Area3D" to="Other Camera/Room Camera/Area3D" method="exit_trigger"]
+[connection signal="body_entered" from="Other Camera/Kitchen Camera/Area3D" to="Other Camera/Kitchen Camera/Area3D" method="enter_trigger"]
+[connection signal="body_exited" from="Other Camera/Kitchen Camera/Area3D" to="Other Camera/Kitchen Camera/Area3D" method="exit_trigger"]
 [connection signal="body_entered" from="Main Camera/Camera3D/Area3D" to="Main Camera/Camera3D/Area3D" method="enter_trigger"]
 [connection signal="body_exited" from="Main Camera/Camera3D/Area3D" to="Main Camera/Camera3D/Area3D" method="exit_trigger"]
 [connection signal="body_entered" from="Main Camera/Camera3D2/Area3D" to="Main Camera/Camera3D2/Area3D" method="enter_trigger"]
