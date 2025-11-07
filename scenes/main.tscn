@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://b571ysf4uvwkl"]
+[gd_scene load_steps=26 format=3 uid="uid://b571ysf4uvwkl"]
 
 [ext_resource type="Script" uid="uid://checpego7bks" path="res://scripts/main.gd" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://dnn8wposvayv8" path="res://scenes/debug/debug_player.tscn" id="1_o5qli"]
@@ -11,8 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://chkjwi7rvrs6w" path="res://assets/textures/footprint.png" id="8_85g3d"]
 
 [sub_resource type="Gradient" id="Gradient_85g3d"]
-offsets = PackedFloat32Array(0, 0.4857143, 1)
-colors = PackedColorArray(0, 0, 0, 1, 0.10248903, 0.041563958, 0.1483689, 1, 0.095143564, 0.1383295, 0.39857554, 1)
+offsets = PackedFloat32Array(0, 0.5119048, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.013775287, 0.012147389, 0.08814324, 1, 0.14994109, 0.20904687, 0.5598, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_choun"]
 
@@ -22,11 +22,11 @@ color_ramp = SubResource("Gradient_85g3d")
 seamless = true
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_85g3d"]
-sky_top_color = Color(0.033199135, 0.062343538, 0.22348818, 1)
-sky_horizon_color = Color(0.021220477, 0.030999584, 0.17216453, 1)
+sky_top_color = Color(0.0050155334, 0.018155914, 0.0646143, 1)
+sky_horizon_color = Color(0, 0, 0, 1)
 sky_cover = SubResource("NoiseTexture2D_ya4ey")
 ground_bottom_color = Color(0, 0, 0, 1)
-ground_horizon_color = Color(0.25668335, 0.11300614, 0.3472174, 1)
+ground_horizon_color = Color(0.09229132, 0.0774331, 0.2903181, 1)
 
 [sub_resource type="Sky" id="Sky_choun"]
 sky_material = SubResource("ProceduralSkyMaterial_85g3d")
@@ -36,19 +36,12 @@ background_mode = 2
 sky = SubResource("Sky_choun")
 tonemap_mode = 2
 
-[sub_resource type="BoxMesh" id="BoxMesh_tipki"]
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_85g3d"]
-albedo_color = Color(0.09803922, 0, 0.14901961, 1)
-emission_enabled = true
-disable_receive_shadows = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_choun"]
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_ya4ey"]
-material = SubResource("StandardMaterial3D_choun")
+material = SubResource("StandardMaterial3D_85g3d")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tefeu"]
 
@@ -105,13 +98,9 @@ visible = false
 [node name="main_map" parent="." instance=ExtResource("5_kry3j")]
 transform = Transform3D(-0.99999964, -0.0007166678, -0.0004300072, -0.0007166423, 0.99999976, -5.8420985e-05, 0.00043004975, -5.8106914e-05, -0.9999999, -0.028403044, 0.019988298, 0.0054864883)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="main_map"]
-transform = Transform3D(40, 0, 0, 0, 80, 0, 0, 0, 1, -5.453825e-06, 10.855774, 62.395275)
-mesh = SubResource("BoxMesh_tipki")
-surface_material_override/0 = SubResource("StandardMaterial3D_85g3d")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="main_map"]
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="main_map"]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -5.4091215e-06, 25.816822, 61.87307)
+visible = false
 mesh = SubResource("SphereMesh_ya4ey")
 
 [node name="Footprints" type="Decal" parent="."]

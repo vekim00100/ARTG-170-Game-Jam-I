@@ -1,4 +1,4 @@
-[gd_scene load_steps=112 format=4 uid="uid://cvpudbsmmlqyb"]
+[gd_scene load_steps=118 format=4 uid="uid://cvpudbsmmlqyb"]
 
 [ext_resource type="Texture2D" uid="uid://bwi3jvlqrbuh5" path="res://assets/glb_models/main_map_carpet texture.jpg" id="1_1xo34"]
 [ext_resource type="Texture2D" uid="uid://cu2sahjm8majs" path="res://assets/glb_models/main_map_grey marble texture.jpg" id="2_eqscl"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://cu1dwbhay7k40" path="res://assets/textures/classic_door.jpg" id="11_mvm66"]
 [ext_resource type="Script" uid="uid://d2ghjp16de22f" path="res://scripts/door.gd" id="12_mvm66"]
 [ext_resource type="PackedScene" uid="uid://25yyqlw5sd6u" path="res://assets/scenery/light.tscn" id="13_mvm66"]
+[ext_resource type="PackedScene" uid="uid://b74ftghwohmpc" path="res://assets/scenery/candle.tscn" id="14_38877"]
+[ext_resource type="Texture2D" uid="uid://dl45y2cqacoy1" path="res://assets/Textures/moon txture.jpg" id="15_k767d"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lb33q"]
 resource_name = "Material.002"
@@ -866,6 +868,22 @@ size = Vector3(1, 5.1, 4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ljvu0"]
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_k767d"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bv51j"]
+albedo_color = Color(0.7708395, 0.77083945, 0.77083945, 1)
+albedo_texture = ExtResource("15_k767d")
+emission_enabled = true
+emission = Color(0.972549, 0.98039216, 0.7529412, 1)
+emission_energy_multiplier = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_choun"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_38877"]
+material = SubResource("StandardMaterial3D_choun")
+
 [node name="main_map" type="Node3D"]
 
 [node name="Carpet" type="MeshInstance3D" parent="."]
@@ -1174,8 +1192,37 @@ shape = SubResource("BoxShape3D_mvm66")
 
 [node name="wall" parent="." instance=ExtResource("10_ru2jy")]
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="wall"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 45.806313, 33.970108)
+mesh = SubResource("PlaneMesh_k767d")
+
+[node name="CandleStand3" parent="." instance=ExtResource("14_38877")]
+transform = Transform3D(-3, 0, -4.5298742e-07, 0, 3, 0, 4.5298742e-07, 0, -3, -24.605, 3.151, 2.823)
+
+[node name="CandleStand2" parent="CandleStand3" instance=ExtResource("14_38877")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 1.8992913)
+
+[node name="CandleStand" parent="." instance=ExtResource("14_38877")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 24.604746, 3.1513195, -2.8693686)
+
+[node name="CandleStand2" parent="CandleStand" instance=ExtResource("14_38877")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.8992913)
+
 [node name="Light" parent="." instance=ExtResource("13_mvm66")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 32.809284, 0)
+
+[node name="Moon" type="MeshInstance3D" parent="."]
+transform = Transform3D(-3.9970248, -0.06906632, -0.13792287, 2.7043896e-07, 3.576617, -1.7910362, 0.15424938, -1.7897041, -3.5739567, 3.7024958, 27.98988, 61.87307)
+material_override = SubResource("StandardMaterial3D_bv51j")
+mesh = SubResource("SphereMesh_38877")
+skeleton = NodePath("../CandleStand3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Moon"]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0)
+light_color = Color(1, 1, 0.90588236, 1)
+light_energy = 0.01
+light_indirect_energy = 0.1
+light_volumetric_fog_energy = 0.1
 
 [connection signal="body_entered" from="Left Door/door" to="Left Door/door" method="_on_body_entered"]
 [connection signal="body_exited" from="Left Door/door" to="Left Door/door" method="_on_body_exited"]
