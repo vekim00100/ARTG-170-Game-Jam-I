@@ -1,4 +1,4 @@
-[gd_scene load_steps=120 format=4 uid="uid://cvpudbsmmlqyb"]
+[gd_scene load_steps=124 format=4 uid="uid://cvpudbsmmlqyb"]
 
 [ext_resource type="Texture2D" uid="uid://bwi3jvlqrbuh5" path="res://assets/glb_models/main_map_carpet texture.jpg" id="1_1xo34"]
 [ext_resource type="Texture2D" uid="uid://cu2sahjm8majs" path="res://assets/glb_models/main_map_grey marble texture.jpg" id="2_eqscl"]
@@ -9,8 +9,11 @@
 [ext_resource type="Texture2D" uid="uid://t50esswi14v3" path="res://assets/textures/light-wood.jpg" id="5_ksq80"]
 [ext_resource type="Texture2D" uid="uid://cjv13mucwu0e5" path="res://assets/textures/brick-wall-background-texture.jpg" id="8_ljvu0"]
 [ext_resource type="Texture2D" uid="uid://c6eyuv3ryudd5" path="res://assets/textures/checkered_pavement_tiles.jpg" id="9_ljvu0"]
+[ext_resource type="PackedScene" uid="uid://cc0bxtagjgtsn" path="res://assets/scenery/table.tscn" id="10_50gle"]
 [ext_resource type="PackedScene" uid="uid://mhtxdbilbgkq" path="res://assets/scenery/wall.tscn" id="10_ru2jy"]
 [ext_resource type="Texture2D" uid="uid://cu1dwbhay7k40" path="res://assets/textures/classic_door.jpg" id="11_mvm66"]
+[ext_resource type="PackedScene" uid="uid://cn1hqmdhbvhwm" path="res://assets/scenery/glass.tscn" id="11_udl28"]
+[ext_resource type="PackedScene" uid="uid://be1k2gr3rut36" path="res://assets/scenery/plate.tscn" id="12_cbu2c"]
 [ext_resource type="Script" uid="uid://d2ghjp16de22f" path="res://scripts/door.gd" id="12_mvm66"]
 [ext_resource type="PackedScene" uid="uid://25yyqlw5sd6u" path="res://assets/scenery/light.tscn" id="13_mvm66"]
 [ext_resource type="PackedScene" uid="uid://b74ftghwohmpc" path="res://assets/scenery/candle.tscn" id="14_38877"]
@@ -596,6 +599,9 @@ shadow_mesh = SubResource("ArrayMesh_hm6un")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_sa572"]
 data = PackedVector3Array(-16.5884, 0, -16.5884, 16.5884, 0, 16.5884, -16.5884, 0, 16.5884, -16.5884, 0, -16.5884, 16.5884, 0, -16.5884, 16.5884, 0, 16.5884)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f0mqr"]
+albedo_texture = ExtResource("5_ksq80")
+
 [sub_resource type="BoxMesh" id="BoxMesh_k767d"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_50gle"]
@@ -1032,16 +1038,25 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Kitchen Floor/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_sa572")
 
-[node name="Kitchen2" type="Node" parent="."]
+[node name="Kitchen Counter" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.29282, 0.9832001, 15.622627)
+visible = false
 
-[node name="Kitchen Counter" type="StaticBody3D" parent="Kitchen2"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 51.707146, 0.9832001, 15.622627)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Kitchen2/Kitchen Counter"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Kitchen Counter"]
+material_override = SubResource("StandardMaterial3D_f0mqr")
 mesh = SubResource("BoxMesh_k767d")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Kitchen2/Kitchen Counter"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Kitchen Counter"]
 shape = SubResource("BoxShape3D_50gle")
+
+[node name="Table" parent="." instance=ExtResource("10_50gle")]
+transform = Transform3D(-1.010928e-07, 0, 2.1933424, 0, 1.7467537, 0, -2.3127337, 0, -9.587404e-08, 64.731735, 0, -3.5929918)
+
+[node name="Glass" parent="Table" instance=ExtResource("11_udl28")]
+transform = Transform3D(1.5, 0, -2.1316277e-14, 0, 1.5, 0, 2.1316277e-14, 0, 1.5, -0.1367346, 0.8407308, 0.80765724)
+
+[node name="Plate" parent="Table" instance=ExtResource("12_cbu2c")]
+transform = Transform3D(1.0000002, 0, 3.5527137e-15, 0, 1.0000007, 0, 7.1054274e-15, 0, 0.9999998, 0.3399613, 0.8407309, 0.5053463)
 
 [node name="Room 2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.8531068, 0, 0, 0, 1, -50, 0, 0)
@@ -1227,7 +1242,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.8992913)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 32.809284, 0)
 
 [node name="Light" parent="Light" instance=ExtResource("13_mvm66")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.76114, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.76114, -3.9272232, 0)
 
 [node name="Moon" type="MeshInstance3D" parent="."]
 transform = Transform3D(-3.9970248, -0.06906632, -0.13792287, 2.7043896e-07, 3.576617, -1.7910362, 0.15424938, -1.7897041, -3.5739567, 3.7024958, 27.98988, 61.87307)
