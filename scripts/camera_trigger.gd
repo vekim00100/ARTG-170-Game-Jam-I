@@ -1,6 +1,5 @@
 extends Area3D
 
-
 var in_trigger = false 
 
 func enter_trigger(body):

@@ -18,13 +18,13 @@ func _input(event):
 		Dialogic.start(str(text_key))
 		get_viewport().set_input_as_handled()
 
-func _on_body_entered(body: Node3D) -> void:
+func _on_body_entered(_body: Node3D) -> void:
 	player_in_area = true
 	SignalBus.player_interaction_available.emit(text_key)
 	print("Area entered.")
 
 
-func _on_body_exited(body: Node3D) -> void:
+func _on_body_exited(_body: Node3D) -> void:
 	player_in_area = false
 	SignalBus.player_interaction_available.emit(null)
 	print("Area exited.")
